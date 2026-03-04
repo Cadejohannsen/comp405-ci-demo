@@ -16,6 +16,8 @@ async function main() {
       data: {
         name: "AutoNation Ford",
         location: "Dallas, TX",
+        lat: 32.7767,
+        lng: -96.7970,
         website: "https://www.autonation.com",
       },
     }),
@@ -23,6 +25,8 @@ async function main() {
       data: {
         name: "Hendrick Toyota",
         location: "Charlotte, NC",
+        lat: 35.2271,
+        lng: -80.8431,
         website: "https://www.hendricktoyota.com",
       },
     }),
@@ -30,6 +34,8 @@ async function main() {
       data: {
         name: "Penske Honda",
         location: "Indianapolis, IN",
+        lat: 39.7684,
+        lng: -86.1581,
         website: "https://www.penskeautomotive.com",
       },
     }),
@@ -37,6 +43,8 @@ async function main() {
       data: {
         name: "Sewell BMW",
         location: "Dallas, TX",
+        lat: 32.8098,
+        lng: -96.8065,
         website: "https://www.sewell.com",
       },
     }),
@@ -44,6 +52,8 @@ async function main() {
       data: {
         name: "Park Place Mercedes",
         location: "Dallas, TX",
+        lat: 32.8407,
+        lng: -96.7700,
         website: "https://www.parkplace.com",
       },
     }),
@@ -51,6 +61,8 @@ async function main() {
       data: {
         name: "Larry H. Miller Chevrolet",
         location: "Salt Lake City, UT",
+        lat: 40.7608,
+        lng: -111.8910,
         website: "https://www.lhm.com",
       },
     }),
@@ -58,6 +70,8 @@ async function main() {
       data: {
         name: "Galpin Motors",
         location: "Los Angeles, CA",
+        lat: 34.0522,
+        lng: -118.2437,
         website: "https://www.galpin.com",
       },
     }),
@@ -65,6 +79,8 @@ async function main() {
       data: {
         name: "Carvana",
         location: "Phoenix, AZ",
+        lat: 33.4484,
+        lng: -112.0740,
         website: "https://www.carvana.com",
       },
     }),

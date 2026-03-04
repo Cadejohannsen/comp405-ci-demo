@@ -36,6 +36,8 @@ model Dealer {
   name     String
   website  String?
   location String
+  lat      Float?
+  lng      Float?
   listings Listing[]
 }
 
