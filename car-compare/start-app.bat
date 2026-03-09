@@ -7,7 +7,7 @@ start "CarCompare Server" cmd /k "npm run dev"
 
 :: Wait a moment then open browser
 timeout /t 8 /nobreak >nul
-start http://localhost:3000
+start http://localhost:4200
 
 echo CarCompare is starting in your browser...
 pause
