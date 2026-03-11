@@ -140,7 +140,7 @@ export default function SettingsPanel() {
                   </label>
                   <select
                     value={settings.fontSize}
-                    onChange={(e) => updateSettings({ fontSize: e.target.value as any })}
+                    onChange={(e) => updateSettings({ fontSize: e.target.value as "small" | "medium" | "large" })}
                     className="w-full px-3 py-2 border border-black/20 text-sm bg-white focus:outline-none focus:border-black"
                   >
                     <option value="small">Small</option>
@@ -155,7 +155,7 @@ export default function SettingsPanel() {
                   </label>
                   <select
                     value={settings.cardDensity}
-                    onChange={(e) => updateSettings({ cardDensity: e.target.value as any })}
+                    onChange={(e) => updateSettings({ cardDensity: e.target.value as "compact" | "normal" | "spacious" })}
                     className="w-full px-3 py-2 border border-black/20 text-sm bg-white focus:outline-none focus:border-black"
                   >
                     <option value="compact">Compact</option>
@@ -198,7 +198,7 @@ export default function SettingsPanel() {
                   </label>
                   <select
                     value={settings.resultsPerPage}
-                    onChange={(e) => updateSettings({ resultsPerPage: parseInt(e.target.value) as any })}
+                    onChange={(e) => updateSettings({ resultsPerPage: parseInt(e.target.value) as 12 | 24 | 48 })}
                     className="w-full px-3 py-2 border border-black/20 text-sm bg-white focus:outline-none focus:border-black"
                   >
                     <option value={12}>12</option>
@@ -264,7 +264,7 @@ export default function SettingsPanel() {
                   </label>
                   <select
                     value={settings.borderRadius}
-                    onChange={(e) => updateSettings({ borderRadius: e.target.value as any })}
+                    onChange={(e) => updateSettings({ borderRadius: e.target.value as "sharp" | "rounded" | "very-rounded" })}
                     className="w-full px-3 py-2 border border-black/20 text-sm bg-white focus:outline-none focus:border-black"
                   >
                     <option value="sharp">Sharp</option>
