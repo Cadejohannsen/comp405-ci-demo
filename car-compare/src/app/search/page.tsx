@@ -5,6 +5,7 @@ import { prisma } from "@/lib/prisma";
 
 interface SearchPageProps {
   searchParams: {
+    q?: string;
     make?: string;
     model?: string;
     yearMin?: string;
@@ -20,6 +21,15 @@ interface SearchPageProps {
 export default async function SearchPage({ searchParams }: SearchPageProps) {
   const where: Record<string, unknown> = {};
 
+  // Handle text search (q parameter)
+  if (searchParams.q) {
+    where.OR = [
+      { make: { contains: searchParams.q } },
+      { model: { contains: searchParams.q } },
+    ];
+  }
+  
+  // Handle individual filters from sidebar
   if (searchParams.make) {
     where.make = { contains: searchParams.make };
   }
@@ -108,11 +118,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
           Search Cars
         </h1>
         <SearchBar
-          initialMake={searchParams.make}
-          initialModel={searchParams.model}
-          initialYearMin={searchParams.yearMin}
-          initialYearMax={searchParams.yearMax}
-          initialBodyType={searchParams.bodyType}
+          initialQuery={searchParams.q}
         />
       </div>
 
