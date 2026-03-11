@@ -75,26 +75,26 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
     const root = document.documentElement;
     
     // Background color based on brightness (0 = white, 100 = dark gray)
-    const lightness = 100 - settings.backgroundBrightness;
+    // Use a more dramatic range: 95% (very light) to 20% (quite dark)
+    const lightness = 95 - (settings.backgroundBrightness * 0.75);
     const bgColor = `hsl(0, 0%, ${lightness}%)`;
     root.style.setProperty("--background", bgColor);
     
-        
-    // Adjust text color for contrast
-    const textColor = settings.backgroundBrightness > 50 ? "#ffffff" : "#000000";
+    // Keep text color black for better readability, only switch to white at very dark backgrounds
+    const textColor = settings.backgroundBrightness > 80 ? "#ffffff" : "#000000";
     root.style.setProperty("--foreground", textColor);
     
     // Adjust muted colors based on background
-    const mutedLightness = settings.backgroundBrightness > 50 
-      ? Math.max(20, lightness - 10) 
-      : Math.min(90, lightness + 10);
+    const mutedLightness = settings.backgroundBrightness > 80 
+      ? Math.max(15, lightness - 5) 
+      : Math.min(85, lightness + 15);
     const mutedColor = `hsl(0, 0%, ${mutedLightness}%)`;
     root.style.setProperty("--muted", mutedColor);
     
     // Border color
-    const borderLightness = settings.backgroundBrightness > 50
-      ? Math.max(30, lightness - 20)
-      : Math.min(80, lightness + 20);
+    const borderLightness = settings.backgroundBrightness > 80
+      ? Math.max(10, lightness - 10)
+      : Math.min(75, lightness + 25);
     const borderColor = `hsl(0, 0%, ${borderLightness}%)`;
     root.style.setProperty("--border", borderColor);
     
