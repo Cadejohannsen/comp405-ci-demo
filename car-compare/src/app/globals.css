@@ -43,12 +43,15 @@ body {
   }
 
   /* Hide images when disabled */
-  .hide-images img,
-  .hide-images .aspect-[16/10] {
+  .hide-images img {
     display: none;
   }
 
-  .hide-images .aspect-[16/10] + .car-card-content {
+  .hide-images [class*="aspect-"] {
+    display: none;
+  }
+
+  .hide-images [class*="aspect-"] + .car-card-content {
     padding-top: 0;
   }
 }
