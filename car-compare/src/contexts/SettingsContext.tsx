@@ -74,11 +74,12 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const root = document.documentElement;
     
-    // Background color based on brightness
+    // Background color based on brightness (0 = white, 100 = dark gray)
     const lightness = 100 - settings.backgroundBrightness;
     const bgColor = `hsl(0, 0%, ${lightness}%)`;
     root.style.setProperty("--background", bgColor);
     
+        
     // Adjust text color for contrast
     const textColor = settings.backgroundBrightness > 50 ? "#ffffff" : "#000000";
     root.style.setProperty("--foreground", textColor);

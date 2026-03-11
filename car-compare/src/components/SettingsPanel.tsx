@@ -45,7 +45,7 @@ export default function SettingsPanel() {
 
       {/* Settings Panel */}
       {isOpen && (
-        <div className="absolute right-0 top-full mt-2 w-96 bg-white border-2 border-black shadow-lg z-50 max-h-[80vh] overflow-y-auto">
+        <div className="absolute right-0 top-full mt-2 w-96 bg-background border-2 border-black shadow-lg z-50 max-h-[80vh] overflow-y-auto">
           {/* Header */}
           <div className="flex items-center justify-between p-4 border-b border-black/10">
             <h2 className="font-heading text-lg font-bold uppercase tracking-tight">
@@ -141,7 +141,7 @@ export default function SettingsPanel() {
                   <select
                     value={settings.fontSize}
                     onChange={(e) => updateSettings({ fontSize: e.target.value as "small" | "medium" | "large" })}
-                    className="w-full px-3 py-2 border border-black/20 text-sm bg-white focus:outline-none focus:border-black"
+                    className="w-full px-3 py-2 border border-black/20 text-sm bg-background focus:outline-none focus:border-black"
                   >
                     <option value="small">Small</option>
                     <option value="medium">Medium</option>
@@ -156,7 +156,7 @@ export default function SettingsPanel() {
                   <select
                     value={settings.cardDensity}
                     onChange={(e) => updateSettings({ cardDensity: e.target.value as "compact" | "normal" | "spacious" })}
-                    className="w-full px-3 py-2 border border-black/20 text-sm bg-white focus:outline-none focus:border-black"
+                    className="w-full px-3 py-2 border border-black/20 text-sm bg-background focus:outline-none focus:border-black"
                   >
                     <option value="compact">Compact</option>
                     <option value="normal">Normal</option>
@@ -175,7 +175,7 @@ export default function SettingsPanel() {
                     }`}
                   >
                     <div
-                      className={`w-5 h-5 bg-white rounded-full transition-transform ${
+                      className={`w-5 h-5 bg-background rounded-full transition-transform ${
                         settings.showCarImages ? "translate-x-6" : "translate-x-0.5"
                       }`}
                     />
@@ -199,7 +199,7 @@ export default function SettingsPanel() {
                   <select
                     value={settings.resultsPerPage}
                     onChange={(e) => updateSettings({ resultsPerPage: parseInt(e.target.value) as 12 | 24 | 48 })}
-                    className="w-full px-3 py-2 border border-black/20 text-sm bg-white focus:outline-none focus:border-black"
+                    className="w-full px-3 py-2 border border-black/20 text-sm bg-background focus:outline-none focus:border-black"
                   >
                     <option value={12}>12</option>
                     <option value={24}>24</option>
@@ -218,7 +218,7 @@ export default function SettingsPanel() {
                     }`}
                   >
                     <div
-                      className={`w-5 h-5 bg-white rounded-full transition-transform ${
+                      className={`w-5 h-5 bg-background rounded-full transition-transform ${
                         settings.autoRefresh ? "translate-x-6" : "translate-x-0.5"
                       }`}
                     />
@@ -265,7 +265,7 @@ export default function SettingsPanel() {
                   <select
                     value={settings.borderRadius}
                     onChange={(e) => updateSettings({ borderRadius: e.target.value as "sharp" | "rounded" | "very-rounded" })}
-                    className="w-full px-3 py-2 border border-black/20 text-sm bg-white focus:outline-none focus:border-black"
+                    className="w-full px-3 py-2 border border-black/20 text-sm bg-background focus:outline-none focus:border-black"
                   >
                     <option value="sharp">Sharp</option>
                     <option value="rounded">Rounded</option>
@@ -287,7 +287,7 @@ export default function SettingsPanel() {
                     }`}
                   >
                     <div
-                      className={`w-5 h-5 bg-white rounded-full transition-transform ${
+                      className={`w-5 h-5 bg-background rounded-full transition-transform ${
                         settings.highContrast ? "translate-x-6" : "translate-x-0.5"
                       }`}
                     />
