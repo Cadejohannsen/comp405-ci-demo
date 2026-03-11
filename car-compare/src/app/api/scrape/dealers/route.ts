@@ -104,8 +104,8 @@ export async function POST(req: NextRequest) {
               totalListings++;
             }
           }
-        } catch (err: any) {
-          errors.push(`${make} ${year}: ${err.message}`);
+        } catch (err: unknown) {
+          errors.push(`${make} ${year}: ${err instanceof Error ? err.message : String(err)}`);
         }
       }
     }
@@ -123,10 +123,10 @@ export async function POST(req: NextRequest) {
       dealersUpdated: dealers.length,
       errors: errors.length > 0 ? errors : undefined,
     });
-  } catch (err: any) {
+  } catch (err: unknown) {
     console.error("Scrape error:", err);
     return NextResponse.json(
-      { error: "Scrape failed", details: err.message },
+      { error: "Scrape failed", details: err instanceof Error ? err.message : String(err) },
       { status: 500 }
     );
   }
