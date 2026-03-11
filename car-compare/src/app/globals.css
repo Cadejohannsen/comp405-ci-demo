@@ -5,21 +5,35 @@
 :root {
   --background: #f0efe9;
   --foreground: #000000;
+  --muted: #e8e7e2;
+  --border: #e5e5e5;
+  --accent: #e10600;
+  --font-size-base: 16px;
+  --border-radius: 4px;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
+  font-size: var(--font-size-base);
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+  
+  .dynamic-radius {
+    border-radius: var(--border-radius);
+  }
 }
 
 @layer base {
   * {
-    border-color: #e5e5e5;
+    border-color: var(--border);
+  }
+  
+  .border-2 {
+    border-radius: var(--border-radius);
   }
 }

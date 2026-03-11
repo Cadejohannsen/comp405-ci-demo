@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 import { Search, User, LogOut } from "lucide-react";
+import SettingsPanel from "./SettingsPanel";
 
 export default function Navbar() {
   const { data: session } = useSession();
@@ -27,6 +28,7 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-4">
+          <SettingsPanel />
           {session ? (
             <div className="flex items-center gap-4">
               <span className="text-sm text-muted-foreground">
