@@ -1,4 +1,7 @@
-import { ExternalLink, TrendingDown, TrendingUp } from "lucide-react";
+"use client";
+
+import { useState } from "react";
+import { ExternalLink, TrendingDown, TrendingUp, Copy, Check } from "lucide-react";
 
 interface ListingWithDealer {
   id: string;
@@ -18,6 +21,20 @@ interface PriceComparisonProps {
 }
 
 export default function PriceComparison({ listings }: PriceComparisonProps) {
+  const [copiedId, setCopiedId] = useState<string | null>(null);
+
+  const copyDealerInfo = async (listing: ListingWithDealer) => {
+    const dealerInfo = `${listing.dealer.name}\n${listing.dealer.location}\n${listing.dealer.website || 'No website'}\n\nPrice: $${listing.price.toLocaleString()}`;
+    
+    try {
+      await navigator.clipboard.writeText(dealerInfo);
+      setCopiedId(listing.id);
+      setTimeout(() => setCopiedId(null), 2000);
+    } catch (err) {
+      console.error('Failed to copy:', err);
+    }
+  };
+
   if (listings.length === 0) {
     return (
       <div className="border-2 border-black/10 p-8 text-center">
@@ -38,6 +55,9 @@ export default function PriceComparison({ listings }: PriceComparisonProps) {
 
   return (
     <div>
+      <div className="text-sm text-muted-foreground mb-4">
+        <p>💡 <strong>Note:</strong> External links go to dealer websites. Some sites may be unavailable - use the copy button to save dealer info.</p>
+      </div>
       <div className="grid grid-cols-3 gap-4 mb-8">
         <div className="border-2 border-black p-4 text-center">
           <div className="flex items-center justify-center gap-1 text-green-600 mb-1">
@@ -83,7 +103,7 @@ export default function PriceComparison({ listings }: PriceComparisonProps) {
             Price
           </span>
           <span className="text-xs font-medium uppercase tracking-wider">
-            Link
+            Actions
           </span>
         </div>
         {sorted.map((listing, i) => {
@@ -116,17 +136,29 @@ export default function PriceComparison({ listings }: PriceComparisonProps) {
                   </p>
                 )}
               </div>
-              <div>
-                {listing.url && (
+              <div className="flex gap-1">
+                {listing.url ? (
                   <a
                     href={listing.url}
                     target="_blank"
                     rel="noopener noreferrer"
+                    title={`Visit ${listing.dealer.name} website`}
                     className="flex items-center justify-center w-8 h-8 border border-black/20 hover:bg-black hover:text-white transition-colors"
                   >
                     <ExternalLink size={14} />
                   </a>
+                ) : (
+                  <div className="flex items-center justify-center w-8 h-8 border border-black/10 text-muted-foreground">
+                    <ExternalLink size={14} />
+                  </div>
                 )}
+                <button
+                  onClick={() => copyDealerInfo(listing)}
+                  title={`Copy ${listing.dealer.name} info`}
+                  className="flex items-center justify-center w-8 h-8 border border-black/20 hover:bg-black hover:text-white transition-colors"
+                >
+                  {copiedId === listing.id ? <Check size={14} /> : <Copy size={14} />}
+                </button>
               </div>
             </div>
           );
