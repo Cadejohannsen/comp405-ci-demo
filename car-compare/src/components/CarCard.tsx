@@ -53,8 +53,8 @@ export default function CarCard({
           )}
         </div>
 
-        <div className="p-5">
-          <div className="flex items-start justify-between mb-3">
+        <div className="car-card-content p-4">
+          <div className="flex items-start justify-between mb-2">
             <div>
               <h3 className="font-heading text-xl font-bold uppercase tracking-tight">
                 {year} {make}
@@ -63,32 +63,40 @@ export default function CarCard({
                 {model}
               </p>
             </div>
-            {lowestPrice && (
-              <div className="text-right">
-                <p className="text-xs text-muted-foreground uppercase tracking-wider">
-                  From
-                </p>
-                <p className="font-heading text-xl font-bold">
-                  ${lowestPrice.toLocaleString()}
-                </p>
+            {listingCount && listingCount > 0 && (
+              <div className="bg-accent text-white px-3 py-1 text-xs font-medium uppercase tracking-wider">
+                {listingCount} listing{listingCount !== 1 ? 's' : ''}
               </div>
             )}
           </div>
 
-          <div className="flex items-center gap-4 pt-3 border-t">
-            <div className="flex items-center gap-1.5 text-xs text-muted-foreground uppercase tracking-wider">
-              <Gauge size={14} />
-              {mileage.toLocaleString()} mi
-            </div>
-            <div className="flex items-center gap-1.5 text-xs text-muted-foreground uppercase tracking-wider">
+          <div className="flex items-center gap-6 text-sm text-muted-foreground mb-4">
+            <div className="flex items-center gap-1">
               <Calendar size={14} />
-              {year}
+              <span>{year}</span>
             </div>
-            <div className="flex items-center gap-1.5 text-xs text-muted-foreground uppercase tracking-wider">
+            <div className="flex items-center gap-1">
+              <Gauge size={14} />
+              <span>{mileage.toLocaleString()} mi</span>
+            </div>
+            <div className="flex items-center gap-1">
               <Tag size={14} />
-              {bodyType}
+              <span className="capitalize">{bodyType}</span>
             </div>
           </div>
+
+          {lowestPrice && (
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-xs text-muted-foreground uppercase tracking-wider">
+                  Starting at
+                </p>
+                <p className="font-heading text-2xl font-bold">
+                  ${lowestPrice.toLocaleString()}
+                </p>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </Link>

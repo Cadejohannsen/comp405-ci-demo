@@ -115,6 +115,18 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
     };
     root.style.setProperty("--font-size-base", fontSizes[settings.fontSize]);
     
+    // Card density and show images
+    root.style.setProperty("--card-density", settings.cardDensity);
+    root.style.setProperty("--show-car-images", settings.showCarImages ? "1" : "0");
+    
+    // Apply classes to body
+    const bodyClasses = [`card-${settings.cardDensity}`];
+    if (!settings.showCarImages) {
+      bodyClasses.push('hide-images');
+    }
+    
+    document.body.className = bodyClasses.join(' ');
+    
     // Border radius
     const borderRadiuses = {
       sharp: "0px",

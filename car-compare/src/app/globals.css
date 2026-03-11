@@ -10,6 +10,8 @@
   --accent: #e10600;
   --font-size-base: 16px;
   --border-radius: 4px;
+  --card-density: normal;
+  --show-car-images: 1;
 }
 
 body {
@@ -22,9 +24,32 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-  
+
   .dynamic-radius {
     border-radius: var(--border-radius);
+  }
+
+  /* Card density styles */
+  .card-compact .car-card-content {
+    padding: 12px;
+  }
+
+  .card-normal .car-card-content {
+    padding: 16px;
+  }
+
+  .card-spacious .car-card-content {
+    padding: 24px;
+  }
+
+  /* Hide images when disabled */
+  .hide-images img,
+  .hide-images .aspect-[16/10] {
+    display: none;
+  }
+
+  .hide-images .aspect-[16/10] + .car-card-content {
+    padding-top: 0;
   }
 }
 
@@ -32,8 +57,13 @@ body {
   * {
     border-color: var(--border);
   }
-  
+
   .border-2 {
     border-radius: var(--border-radius);
+  }
+
+  /* Apply card density globally */
+  .car-card-content {
+    transition: padding 0.2s ease;
   }
 }
