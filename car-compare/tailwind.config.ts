@@ -9,10 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#ffffff",
+        background: "#f0efe9",
         foreground: "#000000",
         accent: "#e10600",
-        muted: "#f5f5f5",
+        muted: "#e8e7e2",
         "muted-foreground": "#737373",
         border: "#e5e5e5",
       },

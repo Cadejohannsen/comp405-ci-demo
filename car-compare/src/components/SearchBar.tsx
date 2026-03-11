@@ -6,22 +6,30 @@ import { Search } from "lucide-react";
 
 const MAKES = [
   "Any Make",
+  "Acura",
   "Audi",
   "BMW",
+  "Cadillac",
   "Chevrolet",
   "Dodge",
   "Ford",
+  "Genesis",
+  "GMC",
   "Honda",
   "Hyundai",
   "Jeep",
   "Kia",
   "Lexus",
+  "Lincoln",
+  "Mazda",
   "Mercedes-Benz",
   "Nissan",
+  "Ram",
   "Subaru",
   "Tesla",
   "Toyota",
   "Volkswagen",
+  "Volvo",
 ];
 
 const BODY_TYPES = [

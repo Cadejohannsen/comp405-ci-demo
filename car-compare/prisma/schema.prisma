@@ -20,34 +20,42 @@ model User {
 }
 
 model Car {
-  id        String    @id @default(cuid())
-  make      String
-  model     String
-  year      Int
-  mileage   Int
-  bodyType  String
-  imageUrl  String?
-  createdAt DateTime  @default(now())
-  listings  Listing[]
+  id           String    @id @default(cuid())
+  make         String
+  model        String
+  year         Int
+  mileage      Int
+  bodyType     String
+  imageUrl     String?
+  color        String?
+  transmission String?
+  fuelType     String?
+  driveType    String?
+  createdAt    DateTime  @default(now())
+  listings     Listing[]
 }
 
 model Dealer {
-  id       String    @id @default(cuid())
-  name     String
-  website  String?
-  location String
-  lat      Float?
-  lng      Float?
-  listings Listing[]
+  id            String    @id @default(cuid())
+  name          String
+  website       String?
+  location      String
+  lat           Float?
+  lng           Float?
+  isActive      Boolean   @default(true)
+  lastScrapedAt DateTime?
+  listings      Listing[]
 }
 
 model Listing {
-  id        String   @id @default(cuid())
-  price     Float
-  url       String?
-  scrapedAt DateTime @default(now())
-  carId     String
-  car       Car      @relation(fields: [carId], references: [id])
-  dealerId  String
-  dealer    Dealer   @relation(fields: [dealerId], references: [id])
+  id         String   @id @default(cuid())
+  price      Float
+  url        String?
+  source     String   @default("seed")
+  externalId String?
+  scrapedAt  DateTime @default(now())
+  carId      String
+  car        Car      @relation(fields: [carId], references: [id])
+  dealerId   String
+  dealer     Dealer   @relation(fields: [dealerId], references: [id])
 }

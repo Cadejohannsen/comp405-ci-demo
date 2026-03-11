@@ -29,7 +29,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${oswald.variable} font-body antialiased bg-white text-black`}
+        className={`${inter.variable} ${oswald.variable} font-body antialiased bg-background text-black`}
       >
         <Providers>
           <Navbar />

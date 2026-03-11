@@ -28,6 +28,7 @@ describe("App Structure", () => {
       "app/api/auth/[...nextauth]/route.ts",
       "app/api/auth/signup/route.ts",
       "app/api/scrape/route.ts",
+      "app/api/scrape/dealers/route.ts",
     ];
 
     for (const route of requiredRoutes) {
@@ -57,7 +58,7 @@ describe("App Structure", () => {
   });
 
   test("lib files exist", () => {
-    const requiredLibs = ["lib/prisma.ts", "lib/auth.ts", "lib/scraper.ts"];
+    const requiredLibs = ["lib/prisma.ts", "lib/auth.ts", "lib/scraper.ts", "lib/vehicle-api.ts"];
 
     for (const lib of requiredLibs) {
       const filePath = path.join(srcDir, lib);
