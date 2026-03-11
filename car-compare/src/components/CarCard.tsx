@@ -26,7 +26,7 @@ export default function CarCard({
 }: CarCardProps) {
   return (
     <Link href={`/car/${id}`} className="group block">
-      <div className="border-2 border-black/10 hover:border-black transition-colors bg-white overflow-hidden">
+      <div className="border-2 border-black/10 hover:border-black transition-colors bg-background overflow-hidden">
         <div className="aspect-[16/10] bg-muted relative overflow-hidden">
           {imageUrl ? (
             <img

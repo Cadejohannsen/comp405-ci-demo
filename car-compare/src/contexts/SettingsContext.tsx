@@ -80,6 +80,7 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
     const bgColor = `hsl(0, 0%, ${lightness}%)`;
     root.style.setProperty("--background", bgColor);
     
+        
     // Keep text color black for better readability, only switch to white at very dark backgrounds
     const textColor = settings.backgroundBrightness > 80 ? "#ffffff" : "#000000";
     root.style.setProperty("--foreground", textColor);

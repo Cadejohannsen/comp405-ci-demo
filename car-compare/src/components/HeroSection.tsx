@@ -3,7 +3,7 @@ import { ArrowRight } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center bg-white overflow-hidden">
+    <section className="relative min-h-[90vh] flex items-center justify-center bg-background overflow-hidden">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#00000008_1px,transparent_1px),linear-gradient(to_bottom,#00000008_1px,transparent_1px)] bg-[size:64px_64px]" />
 
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">

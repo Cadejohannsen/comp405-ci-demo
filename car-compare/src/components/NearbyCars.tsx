@@ -166,7 +166,7 @@ export default function NearbyCars() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {cars.slice(0, 6).map((car) => (
           <div key={car.id} className="relative">
-            <div className="absolute top-3 left-3 z-10 bg-white border-2 border-black px-3 py-1 text-xs font-medium uppercase tracking-wider flex items-center gap-1">
+            <div className="absolute top-3 left-3 z-10 bg-background border-2 border-black px-3 py-1 text-xs font-medium uppercase tracking-wider flex items-center gap-1">
               <MapPin size={12} />
               {car.distance} mi away
             </div>

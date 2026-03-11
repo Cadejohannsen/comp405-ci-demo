@@ -66,7 +66,7 @@ export default function FilterSidebar() {
             <select
               value={searchParams.get("make") || ""}
               onChange={(e) => updateFilter("make", e.target.value)}
-              className="w-full px-3 py-2 border border-black/20 text-sm bg-white focus:outline-none focus:border-black appearance-none cursor-pointer"
+              className="w-full px-3 py-2 border border-black/20 text-sm bg-background focus:outline-none focus:border-black appearance-none cursor-pointer"
             >
               <option value="">All Makes</option>
               {MAKES.map((m) => (
@@ -99,7 +99,7 @@ export default function FilterSidebar() {
               <select
                 value={searchParams.get("yearMin") || ""}
                 onChange={(e) => updateFilter("yearMin", e.target.value)}
-                className="w-full px-3 py-2 border border-black/20 text-sm bg-white focus:outline-none focus:border-black appearance-none cursor-pointer"
+                className="w-full px-3 py-2 border border-black/20 text-sm bg-background focus:outline-none focus:border-black appearance-none cursor-pointer"
               >
                 <option value="">From</option>
                 {YEARS.map((y) => (
@@ -109,7 +109,7 @@ export default function FilterSidebar() {
               <select
                 value={searchParams.get("yearMax") || ""}
                 onChange={(e) => updateFilter("yearMax", e.target.value)}
-                className="w-full px-3 py-2 border border-black/20 text-sm bg-white focus:outline-none focus:border-black appearance-none cursor-pointer"
+                className="w-full px-3 py-2 border border-black/20 text-sm bg-background focus:outline-none focus:border-black appearance-none cursor-pointer"
               >
                 <option value="">To</option>
                 {YEARS.map((y) => (
@@ -126,7 +126,7 @@ export default function FilterSidebar() {
             <select
               value={searchParams.get("bodyType") || ""}
               onChange={(e) => updateFilter("bodyType", e.target.value)}
-              className="w-full px-3 py-2 border border-black/20 text-sm bg-white focus:outline-none focus:border-black appearance-none cursor-pointer"
+              className="w-full px-3 py-2 border border-black/20 text-sm bg-background focus:outline-none focus:border-black appearance-none cursor-pointer"
             >
               <option value="">All Types</option>
               {BODY_TYPES.map((b) => (
@@ -177,7 +177,7 @@ export default function FilterSidebar() {
             <select
               defaultValue={searchParams.get("sort") || ""}
               onChange={(e) => updateFilter("sort", e.target.value)}
-              className="w-full px-3 py-2 border border-black/20 text-sm bg-white focus:outline-none focus:border-black appearance-none cursor-pointer"
+              className="w-full px-3 py-2 border border-black/20 text-sm bg-background focus:outline-none focus:border-black appearance-none cursor-pointer"
             >
               <option value="">Newest First</option>
               <option value="price_asc">Price: Low to High</option>
