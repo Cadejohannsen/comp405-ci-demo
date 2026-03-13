@@ -1,11 +1,14 @@
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import VideoBackground from "./VideoBackground";
+// import YouTubeBackground from "./YouTubeBackground"; // Uncomment to use YouTube
 
 export default function HeroSection() {
   return (
     <section className="relative min-h-[90vh] overflow-hidden">
       <VideoBackground opacity={0.3}>
+      {/* Alternative: Use YouTube Background */}
+      {/* <YouTubeBackground videoId="t9-cMiEDNyk" opacity={0.3}> */}
         <div className="flex items-center justify-center min-h-[90vh]">
           <div className="max-w-6xl mx-auto px-6 text-center">
             <div className="mb-8">
@@ -69,6 +72,7 @@ export default function HeroSection() {
           </div>
         </div>
       </VideoBackground>
+      {/* </YouTubeBackground> */}
     </section>
   );
 }
