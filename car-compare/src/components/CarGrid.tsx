@@ -1,18 +1,8 @@
-import CarCard from "./CarCard";
-
-interface CarWithListings {
-  id: string;
-  make: string;
-  model: string;
-  year: number;
-  mileage: number;
-  bodyType: string;
-  imageUrl?: string | null;
-  listings: { price: number }[];
-}
+import CarCardListings from "./CarCardListings";
+import { CarWithMarketData } from "@/lib/deal-scoring";
 
 interface CarGridProps {
-  cars: CarWithListings[];
+  cars: CarWithMarketData[];
 }
 
 export default function CarGrid({ cars }: CarGridProps) {
@@ -30,27 +20,14 @@ export default function CarGrid({ cars }: CarGridProps) {
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {cars.map((car) => {
-        const lowestPrice =
-          car.listings.length > 0
-            ? Math.min(...car.listings.map((l) => l.price))
-            : undefined;
-        return (
-          <CarCard
-            key={car.id}
-            id={car.id}
-            make={car.make}
-            model={car.model}
-            year={car.year}
-            mileage={car.mileage}
-            bodyType={car.bodyType}
-            imageUrl={car.imageUrl}
-            lowestPrice={lowestPrice}
-            listingCount={car.listings.length}
-          />
-        );
-      })}
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+      {cars.map((car) => (
+        <CarCardListings
+          key={car.id}
+          car={car}
+          maxListings={3}
+        />
+      ))}
     </div>
   );
 }

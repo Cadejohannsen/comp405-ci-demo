@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { ExternalLink, TrendingDown, TrendingUp, Copy, Check } from "lucide-react";
 
-interface ListingWithDealer {
+export interface ListingWithDealer {
   id: string;
   price: number;
   url?: string | null;

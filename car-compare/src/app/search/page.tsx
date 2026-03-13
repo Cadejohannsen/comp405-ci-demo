@@ -2,6 +2,7 @@ import SearchBar from "@/components/SearchBar";
 import CarGrid from "@/components/CarGrid";
 import FilterSidebar from "@/components/FilterSidebar";
 import { prisma } from "@/lib/prisma";
+import { processCarsWithMarketData } from "@/lib/deal-scoring";
 
 interface SearchPageProps {
   searchParams: {
@@ -67,7 +68,11 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
   let cars = await prisma.car.findMany({
     where,
-    include: { listings: true },
+    include: { 
+      listings: {
+        include: { dealer: true }
+      }
+    },
     orderBy,
   });
 
@@ -85,30 +90,24 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
     });
   }
 
+  // Process cars with market data and deal scoring
+  const carsWithMarketData = processCarsWithMarketData(cars);
+
+  // Apply deal score sorting if requested
   if (searchParams.sort === "price_asc") {
-    cars.sort((a, b) => {
-      const aMin =
-        a.listings.length > 0
-          ? Math.min(...a.listings.map((l) => l.price))
-          : Infinity;
-      const bMin =
-        b.listings.length > 0
-          ? Math.min(...b.listings.map((l) => l.price))
-          : Infinity;
+    carsWithMarketData.sort((a, b) => {
+      const aMin = a.dealRange.lowest || Infinity;
+      const bMin = b.dealRange.lowest || Infinity;
       return aMin - bMin;
     });
   } else if (searchParams.sort === "price_desc") {
-    cars.sort((a, b) => {
-      const aMin =
-        a.listings.length > 0
-          ? Math.min(...a.listings.map((l) => l.price))
-          : 0;
-      const bMin =
-        b.listings.length > 0
-          ? Math.min(...b.listings.map((l) => l.price))
-          : 0;
+    carsWithMarketData.sort((a, b) => {
+      const aMin = a.dealRange.lowest || 0;
+      const bMin = b.dealRange.lowest || 0;
       return bMin - aMin;
     });
+  } else if (searchParams.sort === "deal_score") {
+    carsWithMarketData.sort((a, b) => (b.bestDeal?.dealScore.score || 0) - (a.bestDeal?.dealScore.score || 0));
   }
 
   return (
@@ -126,9 +125,9 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
         <FilterSidebar />
         <div className="flex-1">
           <p className="text-sm text-muted-foreground uppercase tracking-wider mb-4">
-            {cars.length} {cars.length === 1 ? "result" : "results"} found
+            {carsWithMarketData.length} {carsWithMarketData.length === 1 ? "result" : "results"} found
           </p>
-          <CarGrid cars={cars} />
+          <CarGrid cars={carsWithMarketData} />
         </div>
       </div>
     </div>

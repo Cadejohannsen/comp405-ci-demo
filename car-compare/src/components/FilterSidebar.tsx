@@ -180,6 +180,7 @@ export default function FilterSidebar() {
               className="w-full px-3 py-2 border border-black/20 text-sm bg-background focus:outline-none focus:border-black appearance-none cursor-pointer"
             >
               <option value="">Newest First</option>
+              <option value="deal_score">Best Deal Score</option>
               <option value="price_asc">Price: Low to High</option>
               <option value="price_desc">Price: High to Low</option>
               <option value="mileage_asc">Mileage: Low to High</option>
