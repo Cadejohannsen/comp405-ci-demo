@@ -15,7 +15,7 @@ export default function CarCardListings({ car, maxListings = 3 }: CarCardListing
 
   return (
     <Link href={`/car/${car.id}`} className="group block">
-      <div className="border-2 border-black/10 hover:border-black transition-colors bg-background overflow-hidden">
+      <div className="border-4 border-black hover:border-black transition-colors bg-white overflow-hidden">
         {/* Header with car info */}
         <div className="p-4 border-b border-black/10">
           <div className="flex items-start justify-between mb-3">
@@ -23,7 +23,7 @@ export default function CarCardListings({ car, maxListings = 3 }: CarCardListing
               <h3 className="font-heading text-xl font-bold uppercase tracking-tight">
                 {car.year} {car.make}
               </h3>
-              <p className="text-sm text-muted-foreground uppercase tracking-wider">
+              <p className="text-sm text-gray-700 uppercase tracking-wider">
                 {car.model}
               </p>
             </div>
@@ -36,7 +36,7 @@ export default function CarCardListings({ car, maxListings = 3 }: CarCardListing
             )}
           </div>
 
-          <div className="flex items-center gap-6 text-sm text-muted-foreground">
+          <div className="flex items-center gap-6 text-sm text-gray-600">
             <div className="flex items-center gap-1">
               <Calendar size={14} />
               <span>{car.year}</span>
@@ -78,9 +78,9 @@ export default function CarCardListings({ car, maxListings = 3 }: CarCardListing
 
           {hasMoreListings && (
             <div className="text-center pt-2">
-              <span className="text-xs text-muted-foreground">
+              <div className="text-xs text-gray-600 uppercase tracking-wider">
                 +{car.listings.length - maxListings} more listings
-              </span>
+              </div>
             </div>
           )}
         </div>
@@ -88,13 +88,13 @@ export default function CarCardListings({ car, maxListings = 3 }: CarCardListing
         {/* Footer with deal range */}
         {car.dealRange.spread > 0 && (
           <div className="px-4 pb-4">
-            <div className="flex items-center justify-between text-xs text-muted-foreground">
+            <div className="flex items-center justify-between text-xs text-gray-700">
               <span>Price Range:</span>
               <span>
                 ${car.dealRange.lowest.toLocaleString()} - ${car.dealRange.highest.toLocaleString()}
               </span>
             </div>
-            <div className="flex items-center justify-between text-xs text-muted-foreground mt-1">
+            <div className="flex items-center justify-between text-xs text-gray-700 mt-1">
               <span>Spread:</span>
               <span>${car.dealRange.spread.toLocaleString()}</span>
             </div>
@@ -121,7 +121,7 @@ function ListingRow({ listing, isBestDeal, marketAverage }: ListingRowProps) {
 
   return (
     <div className={`flex items-center justify-between p-3 rounded-lg border ${
-      isBestDeal ? 'border-accent bg-accent/5' : 'border-black/10 bg-muted/20'
+      isBestDeal ? 'border-accent bg-accent/5' : 'border-2 bg-gray-50'
     }`}>
       <div className="flex-1">
         <div className="flex items-center gap-2 mb-1">
@@ -134,7 +134,7 @@ function ListingRow({ listing, isBestDeal, marketAverage }: ListingRowProps) {
             </span>
           )}
         </div>
-        <div className="flex items-center gap-3 text-xs text-muted-foreground">
+        <div className="flex items-center gap-3 text-xs text-gray-600">
           <span>{listing.dealer.location}</span>
           <span>•</span>
           <span>${listing.price.toLocaleString()}</span>
