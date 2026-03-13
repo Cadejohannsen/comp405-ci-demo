@@ -141,31 +141,39 @@ function ListingRow({ listing, isBestDeal, marketAverage }: ListingRowProps) {
   const priceColor = priceVsMarket > 5 ? 'text-accent' : priceVsMarket < -5 ? 'text-accent-light' : 'text-muted-foreground';
 
   return (
-    <div className={`flex items-center justify-between p-4 rounded-lg border transition-all ${
+    <div className={`p-4 rounded-lg border transition-all ${
       isBestDeal ? 'border-accent bg-gradient-to-r from-accent/5 to-accent/10 shadow-sm' : 'border-gray-200 bg-white hover:border-gray-300'
     }`}>
-      <div className="flex-1">
-        <div className="flex items-center gap-2 mb-1">
-          <span className="font-medium text-sm">
-            {listing.dealer.name}
-          </span>
-          {isBestDeal && (
-            <span className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-gradient-to-r from-accent to-accent-dark text-white border border-accent/20 shadow-sm">
-              <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.005 1.603-.921 1.902 0l1.07-3.292a1 1 0 00.364-1.118L16.453 8.91a1 1 0 00-.588-1.81h-3.462a1 1 0 00-.95-.69l-1.07-3.292z"/>
-              </svg>
-              Best Deal
-            </span>
-          )}
+      {/* Dealer name horizontal across top */}
+      <div className="mb-3">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            {isBestDeal && (
+              <span className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-gradient-to-r from-accent to-accent-dark text-white border border-accent/20 shadow-sm">
+                <svg className="w-3 h-3 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.005 1.603-.921 1.902 0l1.07-3.292a1 1 0 00.364-1.118L16.453 8.91a1 1 0 00-.588-1.81h-3.462a1 1 0 00-.95-.69l-1.07-3.292z"/>
+                </svg>
+                Best Deal
+              </span>
+            )}
+          </div>
+          <div className="text-right">
+            <p className="text-lg font-bold text-accent">
+              ${listing.price.toLocaleString()}
+            </p>
+          </div>
         </div>
-        <div className="flex items-center gap-3 text-xs text-gray-600">
-          <span>{listing.dealer.location}</span>
-          <span>•</span>
-          <span>${listing.price.toLocaleString()}</span>
+        <div className="w-full">
+          <p className="font-medium text-sm text-gray-900 bg-gray-100 px-3 py-2 rounded-md text-center">
+            {listing.dealer.name}
+          </p>
+          <p className="text-xs text-gray-600 mt-1 text-center">
+            {listing.dealer.location}
+          </p>
         </div>
       </div>
       
-      <div className="flex items-center gap-3">
+      <div className="flex items-center justify-between mt-3">
         <div className="text-right">
           <DealScore 
             score={listing.dealScore.score} 
