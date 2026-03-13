@@ -34,7 +34,7 @@ export default function VideoBackground({
       };
 
       const handleError = () => {
-        console.log("Video failed to load");
+        console.log("Video failed to load:", videoSrc);
         setHasError(true);
       };
 
@@ -55,6 +55,13 @@ export default function VideoBackground({
 
   return (
     <div className="relative w-full h-full overflow-hidden">
+      {/* Debug info */}
+      <div className="absolute top-4 left-4 z-30 bg-black/50 text-white p-2 text-xs rounded">
+        Video: {videoSrc}<br/>
+        Loaded: {isLoaded ? 'Yes' : 'No'}<br/>
+        Error: {hasError ? 'Yes' : 'No'}
+      </div>
+      
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         {!hasError ? (
