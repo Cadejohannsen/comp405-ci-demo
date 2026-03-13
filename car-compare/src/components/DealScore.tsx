@@ -1,4 +1,4 @@
-import { getDealScoreColor, getDealScoreText } from "@/lib/deal-scoring";
+import { getEnhancedDealScoreColor, getEnhancedDealScoreText } from "@/lib/enhanced-deal-scoring";
 
 interface DealScoreProps {
   score: number;
@@ -13,8 +13,8 @@ export default function DealScore({
   showText = true,
   className = "" 
 }: DealScoreProps) {
-  const color = getDealScoreColor(score);
-  const text = getDealScoreText(score);
+  const color = getEnhancedDealScoreColor(score);
+  const text = getEnhancedDealScoreText(score);
   
   const sizeClasses = {
     small: {

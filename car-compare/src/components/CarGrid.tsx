@@ -1,5 +1,5 @@
 import CarCardListings from "./CarCardListings";
-import { CarWithMarketData } from "@/lib/deal-scoring";
+import { CarWithMarketData } from "@/lib/enhanced-deal-scoring";
 
 interface CarGridProps {
   cars: CarWithMarketData[];

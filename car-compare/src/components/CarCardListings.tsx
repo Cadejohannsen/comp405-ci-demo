@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { Calendar, Gauge, Tag, TrendingDown, TrendingUp, Minus } from "lucide-react";
 import DealScore from "./DealScore";
-import { CarWithMarketData, ListingWithScore } from "@/lib/deal-scoring";
+import { CarWithMarketData, ListingWithEnhancedScore } from "@/lib/enhanced-deal-scoring";
 
 interface CarCardListingsProps {
   car: CarWithMarketData;
@@ -106,7 +106,7 @@ export default function CarCardListings({ car, maxListings = 3 }: CarCardListing
 }
 
 interface ListingRowProps {
-  listing: ListingWithScore;
+  listing: ListingWithEnhancedScore;
   isBestDeal: boolean;
   marketAverage: number;
 }
@@ -155,6 +155,14 @@ function ListingRow({ listing, isBestDeal, marketAverage }: ListingRowProps) {
             {Math.abs(priceVsMarket).toFixed(1)}%
           </span>
         </div>
+      </div>
+      {/* Enhanced deal info */}
+      <div className="text-xs text-gray-500 mt-1">
+        {listing.dealScore.marketPosition === 'bottom_25' && '🔥 Excellent Deal'}
+        {listing.dealScore.marketPosition === 'lower_half' && '✅ Good Deal'}
+        {listing.dealScore.marketPosition === 'upper_half' && '⚖️ Fair Price'}
+        {listing.dealScore.marketPosition === 'top_25' && '⚠️ Overpriced'}
+        {listing.dealScore.confidence === 'low' && ' (Limited data)'}
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import SearchBar from "@/components/SearchBar";
 import CarGrid from "@/components/CarGrid";
 import FilterSidebar from "@/components/FilterSidebar";
 import { prisma } from "@/lib/prisma";
-import { processCarsWithMarketData } from "@/lib/deal-scoring";
+import { processCarsWithEnhancedMarketData } from "@/lib/enhanced-deal-scoring";
 
 interface SearchPageProps {
   searchParams: {
@@ -90,8 +90,8 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
     });
   }
 
-  // Process cars with market data and deal scoring
-  const carsWithMarketData = processCarsWithMarketData(cars);
+  // Process cars with enhanced market data and deal scoring
+  const carsWithMarketData = processCarsWithEnhancedMarketData(cars);
 
   // Apply deal score sorting if requested
   if (searchParams.sort === "price_asc") {
