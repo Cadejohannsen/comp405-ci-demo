@@ -55,13 +55,6 @@ export default function VideoBackground({
 
   return (
     <div className="relative w-full h-full overflow-hidden">
-      {/* Debug info */}
-      <div className="absolute top-4 left-4 z-30 bg-black/50 text-white p-2 text-xs rounded">
-        Video: {videoSrc}<br/>
-        Loaded: {isLoaded ? 'Yes' : 'No'}<br/>
-        Error: {hasError ? 'Yes' : 'No'}
-      </div>
-      
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         {!hasError ? (
@@ -86,7 +79,7 @@ export default function VideoBackground({
         {/* Dark overlay for better text visibility */}
         <div 
           className="absolute inset-0 bg-black"
-          style={{ opacity: 0.4 }}
+          style={{ opacity: 0.2 }}
         />
       </div>
 
