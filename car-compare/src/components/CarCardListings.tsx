@@ -27,7 +27,7 @@ export default function CarCardListings({ car, maxListings = 3 }: CarCardListing
                 {car.model}
               </p>
             </div>
-            <div className="flex flex-col items-end gap-2">
+            <div className="flex items-center gap-3">
               {car.bestDeal && (
                 <DealScore 
                   score={car.bestDeal.dealScore.score} 
@@ -36,7 +36,7 @@ export default function CarCardListings({ car, maxListings = 3 }: CarCardListing
                 />
               )}
               <div className="text-right">
-                <p className="text-xs text-gray-500 uppercase tracking-wider">Best Price</p>
+                <p className="text-xs text-gray-500 uppercase tracking-wider">Best</p>
                 <p className="text-lg font-bold text-accent">
                   ${car.dealRange.lowest.toLocaleString()}
                 </p>
@@ -97,6 +97,19 @@ export default function CarCardListings({ car, maxListings = 3 }: CarCardListing
         {car.dealRange.spread > 0 && (
           <div className="px-4 pb-4">
             <div className="flex items-center justify-between text-xs text-gray-700">
+              <span>Market Avg:</span>
+              <span className="flex items-center gap-2">
+                ${car.marketAverage.toLocaleString()}
+                {car.bestDeal && car.bestDeal.dealScore.priceDifferencePercent !== 0 && (
+                  <span className={`text-xs font-medium ${
+                    car.bestDeal.dealScore.priceDifferencePercent > 0 ? 'text-green-600' : 'text-red-600'
+                  }`}>
+                    ({Math.abs(car.bestDeal.dealScore.priceDifferencePercent).toFixed(1)}% {car.bestDeal.dealScore.priceDifferencePercent > 0 ? 'below' : 'above'} avg)
+                  </span>
+                )}
+              </span>
+            </div>
+            <div className="flex items-center justify-between text-xs text-gray-700 mt-1">
               <span>Price Range:</span>
               <span>
                 ${car.dealRange.lowest.toLocaleString()} - ${car.dealRange.highest.toLocaleString()}
