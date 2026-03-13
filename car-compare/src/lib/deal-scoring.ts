@@ -3,7 +3,7 @@ export interface ListingWithDealer {
   id: string;
   price: number;
   url?: string | null;
-  scrapedAt: string;
+  scrapedAt: string | Date;
   dealer: {
     id: string;
     name: string;

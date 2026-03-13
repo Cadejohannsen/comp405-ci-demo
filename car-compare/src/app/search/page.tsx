@@ -112,8 +112,8 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-10">
-      <div className="mb-8">
-        <h1 className="font-heading text-4xl font-bold uppercase tracking-tight mb-6">
+      <div className="mb-12">
+        <h1 className="font-heading text-6xl md:text-7xl font-bold uppercase tracking-tight mb-6">
           Search Cars
         </h1>
         <SearchBar
