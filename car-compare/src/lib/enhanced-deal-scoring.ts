@@ -203,7 +203,6 @@ export function findSimilarVehicles(
   allCars: CarData[],
   maxResults: number = 50
 ): CarData[] {
-  const category = getVehicleCategory(targetCar.bodyType);
   const currentYear = new Date().getFullYear();
   const targetAge = currentYear - targetCar.year;
   
