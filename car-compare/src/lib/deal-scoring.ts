@@ -1,4 +1,16 @@
-import { ListingWithDealer } from "@/components/PriceComparison";
+// Define interfaces locally to avoid circular dependency
+export interface ListingWithDealer {
+  id: string;
+  price: number;
+  url?: string | null;
+  scrapedAt: string;
+  dealer: {
+    id: string;
+    name: string;
+    location: string;
+    website?: string | null;
+  };
+}
 
 export interface DealScore {
   score: number; // 0-100
@@ -31,6 +43,17 @@ export interface CarWithMarketData {
   };
 }
 
+export interface CarData {
+  id: string;
+  make: string;
+  model: string;
+  year: number;
+  mileage: number;
+  bodyType: string;
+  imageUrl?: string | null;
+  listings: ListingWithDealer[];
+}
+
 /**
  * Calculate market average price for a specific car model
  */
@@ -38,7 +61,7 @@ export function calculateMarketAverage(
   make: string,
   model: string,
   year: number,
-  allCars: any[]
+  allCars: CarData[]
 ): number {
   const similarCars = allCars.filter(
     car => car.make === make && car.model === model && car.year === year
@@ -50,7 +73,7 @@ export function calculateMarketAverage(
   const allPrices: number[] = [];
   similarCars.forEach(car => {
     if (car.listings) {
-      car.listings.forEach((listing: any) => {
+      car.listings.forEach((listing: ListingWithDealer) => {
         allPrices.push(listing.price);
       });
     }
@@ -86,7 +109,7 @@ export function calculateDealScore(
   const priceDifferencePercent = (priceDifference / marketAverage) * 100;
 
   // Base score from price difference
-  let baseScore = 50 + priceDifferencePercent;
+  const baseScore = 50 + priceDifferencePercent;
 
   // Mileage adjustment (lower mileage = better deal)
   const mileageAdjustment = averageMileage 
@@ -133,7 +156,7 @@ export function getAverageMileage(
   make: string,
   model: string,
   year: number,
-  allCars: any[]
+  allCars: CarData[]
 ): number {
   const similarCars = allCars.filter(
     car => car.make === make && car.model === model && car.year === year
@@ -149,7 +172,7 @@ export function getAverageMileage(
  * Process car data with market analysis and deal scoring
  */
 export function processCarsWithMarketData(
-  cars: any[]
+  cars: CarData[]
 ): CarWithMarketData[] {
   // Calculate market averages for all cars
   const marketAverages = new Map<string, number>();
@@ -164,7 +187,7 @@ export function processCarsWithMarketData(
       const allPrices: number[] = [];
       similarCars.forEach(similarCar => {
         if (similarCar.listings) {
-          similarCar.listings.forEach((listing: any) => {
+          similarCar.listings.forEach((listing: ListingWithDealer) => {
             allPrices.push(listing.price);
           });
         }
@@ -194,7 +217,7 @@ export function processCarsWithMarketData(
     );
 
     // Calculate deal scores for each listing
-    const listingsWithScores: ListingWithScore[] = carListings.map((listing: any) => ({
+    const listingsWithScores: ListingWithScore[] = carListings.map((listing: ListingWithDealer) => ({
       ...listing,
       car,
       dealScore: calculateDealScore(
@@ -233,7 +256,7 @@ export function processCarsWithMarketData(
       ...car,
       listings: [],
       marketAverage,
-      bestDeal: null as any,
+      bestDeal: {} as ListingWithScore,
       dealRange: {
         lowest: 0,
         highest: 0,
