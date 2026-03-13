@@ -117,11 +117,11 @@ function ListingRow({ listing, isBestDeal, marketAverage }: ListingRowProps) {
     : 0;
 
   const priceIcon = priceVsMarket > 5 ? TrendingUp : priceVsMarket < -5 ? TrendingDown : Minus;
-  const priceColor = priceVsMarket > 5 ? 'text-red-500' : priceVsMarket < -5 ? 'text-green-500' : 'text-muted-foreground';
+  const priceColor = priceVsMarket > 5 ? 'text-accent' : priceVsMarket < -5 ? 'text-accent-light' : 'text-muted-foreground';
 
   return (
     <div className={`flex items-center justify-between p-3 rounded-lg border ${
-      isBestDeal ? 'border-green-500 bg-green-50' : 'border-black/10 bg-muted/20'
+      isBestDeal ? 'border-accent bg-accent/5' : 'border-black/10 bg-muted/20'
     }`}>
       <div className="flex-1">
         <div className="flex items-center gap-2 mb-1">
@@ -129,7 +129,7 @@ function ListingRow({ listing, isBestDeal, marketAverage }: ListingRowProps) {
             {listing.dealer.name}
           </span>
           {isBestDeal && (
-            <span className="text-xs bg-green-500 text-white px-2 py-0.5 rounded-full uppercase tracking-wider">
+            <span className="text-xs bg-accent text-white px-2 py-0.5 rounded-full uppercase tracking-wider">
               Best Deal
             </span>
           )}

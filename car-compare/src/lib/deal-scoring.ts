@@ -270,10 +270,10 @@ export function processCarsWithMarketData(
  * Get color for deal score
  */
 export function getDealScoreColor(score: number): string {
-  if (score >= 80) return '#10b981'; // green
-  if (score >= 60) return '#84cc16'; // light green
-  if (score >= 40) return '#eab308'; // yellow
-  return '#ef4444'; // red
+  if (score >= 80) return '#dc2626'; // accent red
+  if (score >= 60) return '#ef4444'; // light red
+  if (score >= 40) return '#f59e0b'; // amber
+  return '#991b1b'; // dark red
 }
 
 /**

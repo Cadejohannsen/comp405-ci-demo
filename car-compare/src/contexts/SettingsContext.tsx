@@ -107,12 +107,17 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
     
     // Accent color
     const accentColors = {
-      red: "#e10600",
+      red: "#dc2626",
       blue: "#0066cc",
       green: "#00a652",
       purple: "#6b46c1",
     };
     root.style.setProperty("--accent", accentColors[settings.accentColor]);
+    
+    // Update related accent colors
+    const baseColor = accentColors[settings.accentColor];
+    root.style.setProperty("--accent-light", baseColor + "33");
+    root.style.setProperty("--accent-dark", baseColor + "cc");
     
     // Font size
     const fontSizes = {

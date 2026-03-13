@@ -12,6 +12,8 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         accent: "var(--accent)",
+        "accent-light": "var(--accent-light)",
+        "accent-dark": "var(--accent-dark)",
         muted: "var(--muted)",
         "muted-foreground": "#737373",
         border: "var(--border)",

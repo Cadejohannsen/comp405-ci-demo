@@ -32,17 +32,14 @@ export default function HeroSection() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
             href="/search"
-            className="group flex items-center gap-3 bg-black text-white px-8 py-4 text-sm font-medium uppercase tracking-wider hover:bg-black/80 transition-all"
+            className="group flex items-center gap-3 bg-accent text-white px-8 py-4 text-sm font-medium uppercase tracking-wider hover:bg-accent-dark transition-all"
           >
-            Start Searching
-            <ArrowRight
-              size={18}
-              className="group-hover:translate-x-1 transition-transform"
-            />
+            <span>Search Cars</span>
+            <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </Link>
           <Link
             href="/search"
-            className="flex items-center gap-3 border-2 border-black text-black px-8 py-4 text-sm font-medium uppercase tracking-wider hover:bg-black hover:text-white transition-all"
+            className="flex items-center gap-3 border-2 border-accent text-accent px-8 py-4 text-sm font-medium uppercase tracking-wider hover:bg-accent hover:text-white transition-all"
           >
             Browse All Cars
           </Link>

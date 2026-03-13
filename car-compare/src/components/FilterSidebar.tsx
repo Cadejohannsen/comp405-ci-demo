@@ -43,14 +43,14 @@ export default function FilterSidebar() {
         <div className="flex items-center justify-between mb-6">
           <div className="flex items-center gap-2">
             <SlidersHorizontal size={18} />
-            <h2 className="font-heading text-lg font-bold uppercase tracking-tight">
+            <h3 className="font-heading text-lg font-bold uppercase tracking-tight text-accent">
               Filters
-            </h2>
+            </h3>
           </div>
           {hasFilters && (
             <button
               onClick={clearFilters}
-              className="flex items-center gap-1 text-xs text-muted-foreground hover:text-black transition-colors uppercase tracking-wider"
+              className="text-xs text-muted-foreground hover:text-accent transition-colors"
             >
               <RotateCcw size={12} />
               Clear

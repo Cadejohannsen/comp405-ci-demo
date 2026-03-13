@@ -124,7 +124,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
       <div className="flex flex-col lg:flex-row gap-8">
         <FilterSidebar />
         <div className="flex-1">
-          <p className="text-sm text-muted-foreground uppercase tracking-wider mb-4">
+          <p className="text-sm text-accent uppercase tracking-wider mb-4 font-medium">
             {carsWithMarketData.length} {carsWithMarketData.length === 1 ? "result" : "results"} found
           </p>
           <CarGrid cars={carsWithMarketData} />
