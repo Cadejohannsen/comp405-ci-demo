@@ -50,6 +50,9 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
 
   // Load settings from localStorage on mount
   useEffect(() => {
+    // Only run in browser environment
+    if (typeof window === 'undefined') return;
+    
     try {
       const saved = localStorage.getItem("car-compare-settings");
       if (saved) {
@@ -72,6 +75,9 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
 
   // Apply CSS variables when settings change
   useEffect(() => {
+    // Only run in browser environment
+    if (typeof window === 'undefined') return;
+    
     const root = document.documentElement;
     
     // Background color based on brightness (0 = white, 100 = dark gray)
@@ -126,7 +132,10 @@ export function SettingsProvider({ children }: { children: ReactNode }) {
       bodyClasses.push('hide-images');
     }
     
-    document.body.className = bodyClasses.join(' ');
+    // Preserve existing classes and add our settings classes
+    const existingClasses = document.body.className.split(' ').filter(c => c && !c.startsWith('card-') && c !== 'hide-images');
+    const finalClasses = [...existingClasses, ...bodyClasses];
+    document.body.className = finalClasses.join(' ');
     
     // Border radius
     const borderRadiuses = {
