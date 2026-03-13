@@ -51,7 +51,7 @@ export default function VideoBackground({
         video.removeEventListener('error', handleError);
       };
     }
-  }, []);
+  }, [videoSrc]);
 
   return (
     <div className="relative w-full h-full overflow-hidden">
