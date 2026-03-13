@@ -27,13 +27,21 @@ export default function CarCardListings({ car, maxListings = 3 }: CarCardListing
                 {car.model}
               </p>
             </div>
-            {car.bestDeal && (
-              <DealScore 
-                score={car.bestDeal.dealScore.score} 
-                size="small" 
-                showText={false}
-              />
-            )}
+            <div className="flex flex-col items-end gap-2">
+              {car.bestDeal && (
+                <DealScore 
+                  score={car.bestDeal.dealScore.score} 
+                  size="small" 
+                  showText={false}
+                />
+              )}
+              <div className="text-right">
+                <p className="text-xs text-gray-500 uppercase tracking-wider">Best Price</p>
+                <p className="text-lg font-bold text-accent">
+                  ${car.dealRange.lowest.toLocaleString()}
+                </p>
+              </div>
+            </div>
           </div>
 
           <div className="flex items-center gap-6 text-sm text-gray-600">
