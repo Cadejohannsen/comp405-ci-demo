@@ -39,8 +39,11 @@ export default function NearbyCars() {
       return;
     }
 
+    console.log("Requesting geolocation...");
+    
     navigator.geolocation.getCurrentPosition(
       async (position) => {
+        console.log("Geolocation successful:", position.coords);
         const { latitude, longitude } = position.coords;
 
         // Reverse geocode for display name
@@ -74,8 +77,19 @@ export default function NearbyCars() {
 
         setLoading(false);
       },
-      () => {
-        setError("Location access denied. Enable location to see nearby cars.");
+      (error) => {
+        console.log("Geolocation error:", error);
+        let errorMessage = "Unable to get your location.";
+        
+        if (error.code === 1) {
+          errorMessage = "Location access denied. Please enable location permissions.";
+        } else if (error.code === 2) {
+          errorMessage = "Location unavailable. Please check your GPS/location services.";
+        } else if (error.code === 3) {
+          errorMessage = "Location request timed out. Please try again.";
+        }
+        
+        setError(errorMessage);
         setLoading(false);
       },
       { enableHighAccuracy: false, timeout: 10000 }
