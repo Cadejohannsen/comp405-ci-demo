@@ -1,6 +1,7 @@
-// Vehicle API Service - fetches real automotive data from NHTSA (free, no key needed)
+// Vehicle API Service - fetches real automotive data with authentication
 
-const NHTSA_BASE = "https://vpic.nhtsa.dot.gov/api";
+const API_BASE = process.env.VEHICLE_API_BASE_URL || "https://vpic.nhtsa.dot.gov/api";
+const API_TOKEN = process.env.VEHICLE_API_TOKEN;
 
 export interface VehicleModel {
   Make_Name: string;
@@ -40,7 +41,7 @@ class RateLimiter {
   }
 }
 
-const nhtsaLimiter = new RateLimiter(80);
+const apiLimiter = new RateLimiter(80);
 
 // Retry with exponential backoff
 async function retryFetch<T>(fn: () => Promise<T>, retries = 3): Promise<T> {
@@ -55,17 +56,23 @@ async function retryFetch<T>(fn: () => Promise<T>, retries = 3): Promise<T> {
   throw new Error("retryFetch: should not reach here");
 }
 
-// Fetch all models for a make + year from NHTSA
+// Fetch all models for a make + year from API
 export async function getModelsForMakeYear(
   make: string,
   year: number
 ): Promise<VehicleModel[]> {
-  await nhtsaLimiter.wait();
+  await apiLimiter.wait();
   return retryFetch(async () => {
+    const headers: Record<string, string> = {};
+    if (API_TOKEN) {
+      headers['Authorization'] = `Bearer ${API_TOKEN}`;
+    }
+    
     const res = await fetch(
-      `${NHTSA_BASE}/vehicles/GetModelsForMakeYear/make/${encodeURIComponent(make)}/modelyear/${year}?format=json`
+      `${API_BASE}/vehicles/GetModelsForMakeYear/make/${encodeURIComponent(make)}/modelyear/${year}?format=json`,
+      { headers }
     );
-    if (!res.ok) throw new Error(`NHTSA ${res.status}`);
+    if (!res.ok) throw new Error(`API ${res.status}`);
     const json = await res.json();
     return (json.Results ?? []) as VehicleModel[];
   });
@@ -73,12 +80,18 @@ export async function getModelsForMakeYear(
 
 // Decode a VIN to get vehicle details
 export async function decodeVIN(vin: string): Promise<DecodedVehicle | null> {
-  await nhtsaLimiter.wait();
+  await apiLimiter.wait();
   return retryFetch(async () => {
+    const headers: Record<string, string> = {};
+    if (API_TOKEN) {
+      headers['Authorization'] = `Bearer ${API_TOKEN}`;
+    }
+    
     const res = await fetch(
-      `${NHTSA_BASE}/vehicles/DecodeVin/${vin}?format=json`
+      `${API_BASE}/vehicles/DecodeVin/${vin}?format=json`,
+      { headers }
     );
-    if (!res.ok) throw new Error(`NHTSA ${res.status}`);
+    if (!res.ok) throw new Error(`API ${res.status}`);
     const json = await res.json();
     const map: Record<string, string> = {};
     for (const r of json.Results ?? []) {
