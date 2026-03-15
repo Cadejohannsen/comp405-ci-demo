@@ -6,7 +6,7 @@ const path = require('path');
 const MOCKAROO_API = 'https://api.mockaroo.com/api';
 
 // API Key (you'll need to get this from Mockaroo)
-const API_KEY = 'your-mockaroo-api-key-here';
+const API_KEY = '31038e10';
 
 // Download data from Mockaroo
 async function downloadMockarooData(schema, filename, numRows) {

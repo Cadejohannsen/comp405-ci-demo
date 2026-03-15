@@ -19,9 +19,9 @@ async function main() {
     
     // Load Mockaroo data
     console.log("📊 Loading Mockaroo data...");
-    const carsData = JSON.parse(fs.readFileSync(path.join(__dirname, "cars.json"), "utf8"));
-    const dealersData = JSON.parse(fs.readFileSync(path.join(__dirname, "dealers.json"), "utf8"));
-    const listingsData = JSON.parse(fs.readFileSync(path.join(__dirname, "listings.json"), "utf8"));
+    const carsData = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/cars.json"), "utf8"));
+    const dealersData = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/dealers.json"), "utf8"));
+    const listingsData = JSON.parse(fs.readFileSync(path.join(__dirname, "../data/listings.json"), "utf8"));
     
     console.log(`📈 Loaded ${carsData.length} cars, ${dealersData.length} dealers, ${listingsData.length} listings`);
     
