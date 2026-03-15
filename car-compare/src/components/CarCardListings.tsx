@@ -80,6 +80,7 @@ export default function CarCardListings({ car, maxListings = 3 }: CarCardListing
                 listing={listing} 
                 isBestDeal={index === 0 && car.bestDeal?.id === listing.id}
                 marketAverage={car.marketAverage}
+                carMileage={car.mileage}
               />
             ))}
           </div>
@@ -132,7 +133,7 @@ interface ListingRowProps {
   marketAverage: number;
 }
 
-function ListingRow({ listing, isBestDeal, marketAverage }: ListingRowProps) {
+function ListingRow({ listing, isBestDeal, marketAverage, carMileage }: ListingRowProps & { carMileage: number }) {
   const priceVsMarket = marketAverage > 0 
     ? ((listing.price - marketAverage) / marketAverage) * 100 
     : 0;
@@ -174,12 +175,18 @@ function ListingRow({ listing, isBestDeal, marketAverage }: ListingRowProps) {
       </div>
       
       <div className="flex items-center justify-between mt-3">
-        <div className="text-right">
-          <DealScore 
-            score={listing.dealScore.score} 
-            size="small" 
-            showText={false}
-          />
+        <div className="flex items-center gap-4">
+          <div className="flex items-center gap-1 text-xs text-gray-600">
+            <Gauge size={12} />
+            <span>{carMileage.toLocaleString()} mi</span>
+          </div>
+          <div className="text-right">
+            <DealScore 
+              score={listing.dealScore.score} 
+              size="small" 
+              showText={false}
+            />
+          </div>
         </div>
         <div className="flex items-center gap-1">
           {React.createElement(priceIcon, { size: 12, className: priceColor })}
