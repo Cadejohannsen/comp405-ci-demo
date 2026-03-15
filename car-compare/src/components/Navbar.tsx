@@ -10,21 +10,23 @@ export default function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background border-b border-black/10">
-      <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="font-heading text-4xl md:text-5xl font-bold uppercase tracking-tight">
-            Car<span className="text-accent">Compare</span>
-          </span>
-        </Link>
-
-        <div className="hidden md:flex items-center gap-8">
-          <Link
-            href="/search"
-            className="flex items-center gap-2 text-sm font-medium uppercase tracking-wider hover:text-accent transition-colors"
-          >
-            <Search size={16} />
-            Search
+      <div className="h-20 flex items-center justify-between px-6">
+        <div className="flex items-center gap-8">
+          <Link href="/" className="flex items-center gap-2">
+            <span className="font-heading text-4xl md:text-5xl font-bold uppercase tracking-tight">
+              Car<span className="text-accent">Compare</span>
+            </span>
           </Link>
+          
+          <div className="hidden md:flex items-center gap-8">
+            <Link
+              href="/search"
+              className="flex items-center gap-2 text-sm font-medium uppercase tracking-wider hover:text-accent transition-colors"
+            >
+              <Search size={16} />
+              Search
+            </Link>
+          </div>
         </div>
 
         <div className="flex items-center gap-4">
