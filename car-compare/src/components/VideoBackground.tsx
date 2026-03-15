@@ -79,7 +79,7 @@ export default function VideoBackground({
         {/* Dark overlay for better text visibility */}
         <div 
           className="absolute inset-0 bg-black"
-          style={{ opacity: 0.2 }}
+          style={{ opacity: 0.1 }}
         />
       </div>
 

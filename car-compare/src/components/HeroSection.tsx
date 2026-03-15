@@ -6,7 +6,7 @@ import VideoBackground from "./VideoBackground";
 export default function HeroSection() {
   return (
     <section className="relative min-h-[90vh] overflow-hidden">
-      <VideoBackground opacity={0.7}>
+      <VideoBackground opacity={1.0}>
       {/* Alternative: Use YouTube Background */}
       {/* <YouTubeBackground videoId="t9-cMiEDNyk" opacity={0.3}> */}
         <div className="flex items-center justify-center min-h-[90vh]">
