@@ -33,20 +33,24 @@ export default function Navbar() {
           <SettingsPanel />
           {session ? (
             <div className="flex items-center gap-4">
-              <span className="text-sm text-muted-foreground">
-                {session.user?.name || session.user?.email}
-              </span>
+              <div className="flex items-center gap-2 bg-accent text-white px-4 py-2 text-sm font-medium uppercase tracking-wider">
+                <User size={16} />
+                <span className="hidden md:inline">
+                  {session.user?.name || session.user?.email}
+                </span>
+              </div>
               <button
                 onClick={() => signOut()}
-                className="flex items-center gap-1 text-sm font-medium uppercase tracking-wider hover:text-accent transition-colors"
+                className="flex items-center gap-2 bg-black text-white px-4 py-2 text-sm font-medium uppercase tracking-wider hover:bg-black/80 transition-colors"
               >
                 <LogOut size={16} />
+                <span className="hidden md:inline">Sign Out</span>
               </button>
             </div>
           ) : (
             <Link
               href="/login"
-              className="flex items-center gap-2 bg-black text-white px-5 py-2 text-sm font-medium uppercase tracking-wider hover:bg-black/80 transition-colors"
+              className="flex items-center gap-2 bg-accent text-white px-5 py-2 text-sm font-medium uppercase tracking-wider hover:bg-accent-dark transition-colors"
             >
               <User size={16} />
               Sign In

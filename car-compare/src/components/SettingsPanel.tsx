@@ -36,7 +36,7 @@ export default function SettingsPanel() {
       {/* Settings Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 text-sm font-medium uppercase tracking-wider hover:text-accent transition-colors"
+        className="flex items-center gap-2 bg-accent text-white px-4 py-2 text-sm font-medium uppercase tracking-wider hover:bg-accent-dark transition-colors"
         title="Settings"
       >
         <Settings size={16} />

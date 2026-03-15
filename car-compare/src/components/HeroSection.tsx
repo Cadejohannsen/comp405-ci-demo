@@ -43,7 +43,7 @@ export default function HeroSection() {
               </Link>
               <Link
                 href="/search"
-                className="flex items-center gap-3 border-2 border-accent text-accent px-8 py-4 text-sm font-medium uppercase tracking-wider hover:bg-accent hover:text-white transition-all"
+                className="flex items-center gap-3 bg-accent text-white px-8 py-4 text-sm font-medium uppercase tracking-wider hover:bg-accent-dark transition-all"
               >
                 Browse All Cars
               </Link>
