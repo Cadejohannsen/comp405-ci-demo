@@ -1,0 +1,224 @@
+{
+  "name": "Massive Dealer Dataset",
+  "description": "500+ dealerships nationwide with realistic geographic distribution",
+  "fields": [
+    {
+      "name": "name",
+      "type": "Custom List",
+      "options": [
+        "AutoNation", "CarMax", "Penske Automotive", "Sonic Automotive", "Group 1 Automotive",
+        "Lithia Motors", "Asbury Automotive Group", "Penske Automotive Group", "Sonic Automotive",
+        "Toyota of", "Honda of", "Ford of", "Chevrolet of", "BMW of", "Mercedes-Benz of",
+        "Audi of", "Lexus of", "Nissan of", "Hyundai of", "Kia of", "Mazda of", "Subaru of",
+        "Volkswagen of", "Cadillac of", "Lincoln of", "Acura of", "Infiniti of", "Buick of",
+        "GMC of", "Jeep of", "Ram of", "Dodge of", "Chrysler of", "Porsche of", "Ferrari of",
+        "Lamborghini of", "Bentley of", "Rolls-Royce of", "Aston Martin of", "Maserati of",
+        "McLaren of", "Jaguar of", "Land Rover of", "Volvo of", "Genesis of", "Tesla of",
+        "Rivian of", "Lucid of", "Ferrari Beverly Hills", "Porsche Beverly Hills",
+        "BMW of Beverly Hills", "Mercedes-Benz of Beverly Hills", "Lexus of Beverly Hills",
+        "Toyota Beverly Hills", "Honda Beverly Hills", "Ford Beverly Hills",
+        "Chevrolet Beverly Hills", "Nissan Beverly Hills", "Hyundai Beverly Hills"
+      ]
+    },
+    {
+      "name": "location",
+      "type": "Custom List",
+      "options": [
+        "Los Angeles, CA", "New York, NY", "Chicago, IL", "Houston, TX", "Phoenix, AZ",
+        "Philadelphia, PA", "San Antonio, TX", "San Diego, CA", "Dallas, TX", "San Jose, CA",
+        "Austin, TX", "Jacksonville, FL", "Fort Worth, TX", "Columbus, OH", "Charlotte, NC",
+        "San Francisco, CA", "Indianapolis, IN", "Seattle, WA", "Denver, CO", "Washington, DC",
+        "Boston, MA", "El Paso, TX", "Nashville, TN", "Detroit, MI", "Oklahoma City, OK",
+        "Portland, OR", "Las Vegas, NV", "Memphis, TN", "Louisville, KY", "Milwaukee, WI",
+        "Baltimore, MD", "Albuquerque, NM", "Tucson, AZ", "Fresno, CA", "Sacramento, CA",
+        "Kansas City, MO", "Mesa, AZ", "Atlanta, GA", "Omaha, NE", "Colorado Springs, CO",
+        "Raleigh, NC", "Long Beach, CA", "Virginia Beach, VA", "Miami, FL", "Oakland, CA",
+        "Minneapolis, MN", "Tampa, FL", "Tulsa, OK", "Arlington, TX", "Wichita, KS",
+        "New Orleans, LA", "Bakersfield, CA", "Cleveland, OH", "Aurora, CO", "Anaheim, CA",
+        "Honolulu, HI", "Santa Ana, CA", "Riverside, CA", "Corpus Christi, TX", "Lexington, KY",
+        "Stockton, CA", "Pittsburgh, PA", "St. Paul, MN", "Cincinnati, OH", "Greensboro, NC",
+        "Plano, TX", "Newark, NJ", "Orlando, FL", "Durham, NC", "Chula Vista, CA",
+        "Laredo, TX", "Buffalo, NY", "Rochester, NY", "St. Louis, MO", "Reno, NV",
+        "Glendale, AZ", "Gilbert, AZ", "Garland, TX", "Winston-Salem, NC", "North Las Vegas, NV",
+        "Norfolk, VA", "Chesapeake, VA", "Lubbock, TX", "Scottsdale, AZ", "Irving, TX",
+        "Glendale, CA", "Hialeah, FL", "Fremont, CA", "Irvine, CA", "San Bernardino, CA",
+        "Boise, ID", "Birmingham, AL", "Rochester, NY", "Spokane Valley, WA", "Spokane, WA"
+      ]
+    },
+    {
+      "name": "lat",
+      "type": "Number",
+      "min": 25,
+      "max": 48
+    },
+    {
+      "name": "lng",
+      "type": "Number",
+      "min": -125,
+      "max": -65
+    },
+    {
+      "name": "website",
+      "type": "Custom Formula",
+      "formula": "'https://www.' + name.toLowerCase().replace(' ', '').replace(' ', '') + '.com'"
+    },
+    {
+      "name": "phone",
+      "type": "Custom Formula",
+      "formula": "'(' + random.choice(['555', '888', '777', '999', '666']) + ') ' + str(random.randint(100, 999)) + '-' + str(random.randint(1000, 9999))"
+    },
+    {
+      "name": "email",
+      "type": "Custom Formula",
+      "formula": "'info@' + name.lower().replace(' ', '').replace(' ', '') + '.com'"
+    },
+    {
+      "name": "address",
+      "type": "Custom Formula",
+      "formula": "str(random.randint(100, 9999)) + ' ' + random.choice(['Main St', 'Oak Ave', 'Pine Rd', 'Elm St', 'Maple Ave', 'Cedar Ln', 'Birch Way', 'Willow Dr', 'Park Blvd', 'Oakland Dr']) + ', ' + location"
+    },
+    {
+      "name": "zipCode",
+      "type": "Custom Formula",
+      "formula": "str(random.randint(10000, 99999))"
+    },
+    {
+      "name": "rating",
+      "type": "Custom List",
+      "options": ["1.0", "1.5", "2.0", "2.5", "3.0", "3.5", "4.0", "4.5", "5.0"]
+    },
+    {
+      "name": "reviewCount",
+      "type": "Number",
+      "min": 10,
+      "max": 5000
+    },
+    {
+      "name": "hours",
+      "type": "Custom List",
+      "options": [
+        "Mon-Fri: 9AM-7PM, Sat: 9AM-6PM, Sun: Closed",
+        "Mon-Sat: 8AM-8PM, Sun: 10AM-6PM",
+        "Mon-Fri: 8AM-6PM, Sat: 9AM-5PM, Sun: Closed",
+        "Mon-Thu: 9AM-8PM, Fri: 9AM-9PM, Sat: 9AM-7PM, Sun: 11AM-5PM",
+        "Daily: 9AM-9PM",
+        "Mon-Fri: 7AM-7PM, Sat: 8AM-6PM, Sun: 9AM-5PM",
+        "Mon-Sat: 10AM-8PM, Sun: 12PM-6PM",
+        "Mon-Fri: 8AM-8PM, Sat-Sun: 9AM-7PM"
+      ]
+    },
+    {
+      "name": "specialties",
+      "type": "Custom List",
+      "options": [
+        "New Cars, Used Cars, Service, Parts",
+        "Luxury Vehicles, Certified Pre-Owned, Service",
+        "Trucks, SUVs, Commercial Vehicles",
+        "Electric Vehicles, Hybrid Cars, Service",
+        "Sports Cars, Performance Vehicles, Service",
+        "Family Vehicles, Minivans, Service",
+        "Certified Pre-Owned, Service, Financing",
+        "New Cars, Leasing, Service, Parts",
+        "Used Cars, Financing, Service Center",
+        "Luxury Cars, Exotic Vehicles, Service"
+      ]
+    },
+    {
+      "name": "services",
+      "type": "Custom List",
+      "options": [
+        "Sales, Service, Parts, Financing, Leasing",
+        "Sales, Service, Parts, Collision Center",
+        "Sales, Service, Parts, Detailing, Rentals",
+        "Sales, Service, Parts, Accessories, Customization",
+        "Sales, Service, Parts, Warranty, Insurance",
+        "Sales, Service, Parts, Trade-ins, Consignment",
+        "Sales, Service, Parts, Fleet Sales, Commercial",
+        "Sales, Service, Parts, Restoration, Performance",
+        "Sales, Service, Parts, Delivery, Pickup",
+        "Sales, Service, Parts, Appraisal, Financing"
+      ]
+    },
+    {
+      "name": "established",
+      "type": "Number",
+      "min": 1950,
+      "max": 2024
+    },
+    {
+      "name": "employeeCount",
+      "type": "Number",
+      "min": 5,
+      "max": 200
+    },
+    {
+      "name": "inventorySize",
+      "type": "Number",
+      "min": 50,
+      "max": 1000
+    },
+    {
+      "name": "certifications",
+      "type": "Custom List",
+      "options": [
+        "Certified Pre-Owned, ASE Certified, Manufacturer Certified",
+        "ASE Certified, Manufacturer Certified, BBB Accredited",
+        "Certified Pre-Owned, ASE Certified, EV Certified",
+        "Manufacturer Certified, ASE Master Technician, Hybrid Certified",
+        "Certified Pre-Owned, Diesel Certified, Performance Certified",
+        "ASE Certified, EV Charging Certified, Solar Certified",
+        "Certified Pre-Owned, Classic Car Certified, Restoration Certified",
+        "Manufacturer Certified, ASE Certified, Custom Builder Certified",
+        "Certified Pre-Owned, Warranty Certified, Financing Certified"
+      ]
+    },
+    {
+      "name": "amenities",
+      "type": "Custom List",
+      "options": [
+        "Customer Lounge, WiFi, Coffee Bar, Kids Play Area",
+        "Service Center, Parts Department, Detailing Bay",
+        "Test Drive Center, Financing Office, Delivery Area",
+        "Showroom, Service Bay, Parts Counter, Waiting Area",
+        "Luxury Lounge, Concierge Service, Valet Parking",
+        "Performance Center, Track Day Support, Racing Services",
+        "EV Charging Station, Solar Panels, Green Building",
+        "Classic Car Display, Museum, Restoration Workshop",
+        "Coffee Shop, Restaurant, Car Wash, Detailing Services"
+      ]
+    },
+    {
+      "name": "paymentMethods",
+      "type": "Custom List",
+      "options": [
+        "Cash, Credit Card, Debit Card, Financing, Leasing",
+        "Cash, Credit Card, Debit Card, PayPal, Venmo",
+        "Cash, Credit Card, Debit Card, Bank Transfer, Certified Check",
+        "Cash, Credit Card, Debit Card, Financing, Trade-in",
+        "Cash, Credit Card, Debit Card, Financing, Lease-to-Own",
+        "Cash, Credit Card, Debit Card, Cryptocurrency, Bank Transfer",
+        "Cash, Credit Card, Debit Card, Financing, Military Discount",
+        "Cash, Credit Card, Debit Card, Student Discount, Senior Discount",
+        "Cash, Credit Card, Debit Card, Fleet Sales, Commercial Financing",
+        "Cash, Credit Card, Debit Card, In-House Financing, Bank Financing"
+      ]
+    },
+    {
+      "name": "socialMedia",
+      "type": "Custom List",
+      "options": [
+        "Facebook, Twitter, Instagram, YouTube",
+        "Facebook, Instagram, TikTok, LinkedIn",
+        "Facebook, Twitter, YouTube, Pinterest",
+        "Facebook, Instagram, Snapchat, Twitter",
+        "Facebook, Twitter, LinkedIn, Google+",
+        "Facebook, Instagram, YouTube, Reddit",
+        "Facebook, Twitter, Instagram, TikTok",
+        "Facebook, Instagram, YouTube, Twitter",
+        "Facebook, Twitter, LinkedIn, Instagram",
+        "Facebook, Instagram, YouTube, Snapchat"
+      ]
+    }
+  ],
+  "num_rows": 500
+}

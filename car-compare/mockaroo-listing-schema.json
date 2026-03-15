@@ -1,0 +1,223 @@
+{
+  "name": "Massive Listing Dataset",
+  "description": "25,000+ individual car listings connecting cars to dealers with realistic pricing",
+  "fields": [
+    {
+      "name": "price",
+      "type": "Custom Formula",
+      "formula": "dealerPrice * random.uniform(0.95, 1.05)"
+    },
+    {
+      "name": "listingType",
+      "type": "Custom List",
+      "options": ["New", "Used", "Certified Pre-Owned", "Demo", "Fleet", "Lease", "Rental"]
+    },
+    {
+      "name": "listingStatus",
+      "type": "Custom List",
+      "options": ["Available", "Pending", "Sold", "Reserved", "Coming Soon", "On Hold"]
+    },
+    {
+      "name": "daysOnLot",
+      "type": "Number",
+      "min": 0,
+      "max": 365
+    },
+    {
+      "name": "views",
+      "type": "Number",
+      "min": 0,
+      "max": 10000
+    },
+    {
+      "name": "saves",
+      "type": "Number",
+      "min": 0,
+      "max": 500
+    },
+    {
+      "name": "inquiries",
+      "type": "Number",
+      "min": 0,
+      "max": 100
+    },
+    {
+      "name": "testDrives",
+      "type": "Number",
+      "min": 0,
+      "max": 50
+    },
+    {
+      "name": "url",
+      "type": "Custom Formula",
+      "formula": "'https://www.dealer.com/inventory/' + str(random.randint(100000, 999999))"
+    },
+    {
+      "name": "source",
+      "type": "Custom List",
+      "options": ["mockaroo", "seed", "api", "import", "manual", "scraped"]
+    },
+    {
+      "name": "externalId",
+      "type": "Custom Formula",
+      "formula": "str(random.randint(1000000, 9999999))"
+    },
+    {
+      "name": "scrapedAt",
+      "type": "Date",
+      "min": "2023-01-01",
+      "max": "2024-03-15"
+    },
+    {
+      "name": "lastUpdated",
+      "type": "Date",
+      "min": "2024-01-01",
+      "max": "2024-03-15"
+    },
+    {
+      "name": "description",
+      "type": "Custom List",
+      "options": [
+        "Excellent condition, low mileage, one owner, clean title, well-maintained",
+        "Great condition, regular maintenance, two owners, clean history report",
+        "Good condition, some wear, multiple owners, service records available",
+        "Like new condition, premium features, garage kept, detailed service history",
+        "Certified pre-owned, comprehensive warranty, 150-point inspection",
+        "Excellent condition, low miles, all highway driving, non-smoker",
+        "Great condition, dealer maintained, warranty available, financing options",
+        "Good condition, high mileage but well-maintained, trade-in welcome",
+        "Excellent condition, premium package, all options, recent service",
+        "Like new condition, barely driven, showroom quality, premium features"
+      ]
+    },
+    {
+      "name": "highlights",
+      "type": "Custom List",
+      "options": [
+        "Low mileage, one owner, clean title, excellent condition",
+        "Certified pre-owned, warranty included, financing available",
+        "Premium package, all options, premium sound system, navigation",
+        "Excellent condition, service records, non-smoker, garage kept",
+        "Great condition, recent service, new tires, detailed",
+        "Like new, barely driven, premium features, excellent condition",
+        "Well maintained, regular service, clean history, ready to drive",
+        "Excellent condition, premium trim, all options, luxury features",
+        "Great condition, dealer maintained, warranty available",
+        "Excellent condition, low miles, one owner, clean history"
+      ]
+    },
+    {
+      "name": "features",
+      "type": "Custom List",
+      "options": [
+        "Leather seats, sunroof, premium audio, navigation, heated seats",
+        "Apple CarPlay, Android Auto, backup camera, blind spot monitoring",
+        "Lane departure warning, adaptive cruise, forward collision warning",
+        "Premium sound system, satellite radio, Bluetooth, voice commands",
+        "Heated seats, ventilated seats, memory seats, power everything",
+        "Advanced safety suite, 360 camera, parking assist, adaptive headlights",
+        "Performance package, sport mode, paddle shifters, premium exhaust",
+        "Luxury package, ambient lighting, premium materials, comfort features",
+        "Technology package, large touchscreen, over-the-air updates, WiFi hotspot",
+        "Off-road package, all-terrain tires, skid plates, tow package"
+      ]
+    },
+    {
+      "name": "conditionDetails",
+      "type": "Custom List",
+      "options": [
+        "Excellent exterior and interior, no scratches or dents, like new",
+        "Very good condition, minor wear, well-maintained, clean interior",
+        "Good condition, normal wear for age, some minor scratches",
+        "Excellent condition, recent service, new tires, detailed",
+        "Like new condition, barely driven, showroom quality",
+        "Good condition, some wear but well-maintained, service records",
+        "Excellent condition, premium features, all options available",
+        "Very good condition, one owner, clean history, garage kept",
+        "Good condition, multiple owners but well-maintained, clean title",
+        "Excellent condition, low miles, premium trim, luxury features"
+      ]
+    },
+    {
+      "name": "warranty",
+      "type": "Custom List",
+      "options": [
+        "Manufacturer warranty remaining, extended warranty available",
+        "Certified pre-owned warranty, comprehensive coverage included",
+        "No warranty, sold as-is, but extended warranty available",
+        "Dealer warranty included, extended options available",
+        "Powertrain warranty remaining, comprehensive warranty available",
+        "Full manufacturer warranty, bumper-to-bumper coverage",
+        "Limited warranty, powertrain only, extended available",
+        "No warranty, sold as-is, no extended warranty available",
+        "Certified warranty, comprehensive coverage, roadside assistance",
+        "Extended warranty included, comprehensive coverage available"
+      ]
+    },
+    {
+      "name": "financing",
+      "type": "Custom List",
+      "options": [
+        "Financing available, competitive rates, multiple lenders",
+        "In-house financing, good credit, bad credit accepted",
+        "Bank financing available, multiple options, competitive rates",
+        "Dealer financing, special rates, lease options available",
+        "Financing available, pre-approval, instant decision",
+        "Multiple financing options, credit union, bank, dealer financing",
+        "Financing available, military discount, student discount available",
+        "Financing available, zero down options, competitive rates",
+        "Financing available, lease options, balloon payment options",
+        "Financing available, subprime financing, credit building programs"
+      ]
+    },
+    {
+      "name": "delivery",
+      "type": "Custom List",
+      "options": [
+        "Free delivery within 50 miles, paid shipping available",
+        "Delivery available, shipping nationwide, international shipping",
+        "Local delivery only, pickup available, shipping at cost",
+        "Free delivery, white glove service, nationwide shipping",
+        "Delivery available, pickup preferred, shipping available",
+        "Free local delivery, paid shipping, expedited shipping available",
+        "Delivery available, pickup location, shipping options",
+        "Free delivery, nationwide shipping, international delivery",
+        "Delivery available, pickup only, no shipping options",
+        "Free delivery, white glove service, international shipping"
+      ]
+    },
+    {
+      "name": "inspections",
+      "type": "Custom List",
+      "options": [
+        "150-point inspection, certified pre-owned, comprehensive report",
+        "Multi-point inspection, service records available, detailed report",
+        "Dealer inspection, clean history report, condition report",
+        "Certified inspection, comprehensive warranty, detailed report",
+        "Professional inspection, detailed report, photos available",
+        "Thorough inspection, service records, condition documentation",
+        "Certified inspection, warranty included, detailed report",
+        "Dealer inspection, clean title, condition report available",
+        "Comprehensive inspection, detailed report, warranty included",
+        "Professional inspection, detailed documentation, photos available"
+      ]
+    },
+    {
+      "name": "priceHistory",
+      "type": "Custom List",
+      "options": [
+        "Price reduced, competitive pricing, market analysis available",
+        "Recently reduced, great value, competitive market price",
+        "Fair market price, competitive pricing, value for money",
+        "Recently reduced, excellent value, below market average",
+        "Competitive pricing, market analysis, price guarantee",
+        "Great value, below market average, competitive pricing",
+        "Fair price, market analysis, competitive pricing",
+        "Recently reduced, excellent value, market competitive",
+        "Competitive pricing, market analysis, value for money",
+        "Great value, below market, competitive pricing"
+      ]
+    }
+  ],
+  "num_rows": 25000
+}

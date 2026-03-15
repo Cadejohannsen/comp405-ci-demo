@@ -1,0 +1,251 @@
+{
+  "name": "Massive Car Dataset",
+  "description": "Comprehensive car dataset with thousands of vehicles across all brands and price ranges",
+  "fields": [
+    {
+      "name": "make",
+      "type": "Custom List",
+      "options": [
+        "Toyota", "Honda", "Ford", "Chevrolet", "Nissan", "Hyundai", "Kia", "Mazda", "Subaru", "Volkswagen",
+        "BMW", "Mercedes-Benz", "Audi", "Lexus", "Infiniti", "Acura", "Cadillac", "Lincoln", "Genesis", "Volvo",
+        "Ferrari", "Lamborghini", "Porsche", "Bentley", "Rolls-Royce", "Aston Martin", "Maserati", "McLaren",
+        "Tesla", "Rivian", "Lucid", "GMC", "Buick", "Chrysler", "Dodge", "Jeep", "Ram",
+        "Jaguar", "Land Rover", "Mini", "Smart", "Mitsubishi", "Suzuki", "FIAT", "Alfa Romeo", "Bugatti"
+      ]
+    },
+    {
+      "name": "model",
+      "type": "Custom List",
+      "options": [
+        "Camry", "Accord", "F-150", "Silverado", "Civic", "Corolla", "RAV4", "CR-V", "Explorer", "Escape",
+        "Model S", "Model 3", "Model X", "Model Y", "Mustang", "Camaro", "Challenger", "Corvette", "911", "Cayenne",
+        "3 Series", "5 Series", "X5", "E-Class", "S-Class", "A4", "Q5", "RX 350", "ES 350", "MDX",
+        "Tahoe", "Suburban", "Sierra", "F-250", "Ram 1500", "Wrangler", "Grand Cherokee", "Pilot", "Highlander",
+        "Altima", "Sentra", "Elantra", "Sonata", "Forte", "Optima", "CX-5", "Outback", "Forester", "Tiguan",
+        "Golf", "Jetta", "Passat", "Atlas", "Accord", "Crosstrek", "Ascent", "Palisade", "Telluride", "Sorento"
+      ]
+    },
+    {
+      "name": "year",
+      "type": "Number",
+      "min": 1990,
+      "max": 2026
+    },
+    {
+      "name": "trim",
+      "type": "Custom List",
+      "options": [
+        "Base", "LE", "SE", "XLE", "Limited", "Platinum", "Sport", "Touring", "Grand Touring", "Signature",
+        "LX", "EX", "EX-L", "Touring", "Elite", "Sport", "Hybrid", "Plug-in Hybrid", "Performance", "Track",
+        "S", "4S", "Turbo", "GT", "GT3", "GT4", "Spyder", "Cabriolet", "Coupe", "Convertible", "Roadster"
+      ]
+    },
+    {
+      "name": "bodyType",
+      "type": "Custom List",
+      "options": [
+        "Sedan", "SUV", "Truck", "Coupe", "Convertible", "Hatchback", "Wagon", "Minivan", "Pickup", "Crossover"
+      ]
+    },
+    {
+      "name": "color",
+      "type": "Custom List",
+      "options": [
+        "White", "Black", "Silver", "Gray", "Red", "Blue", "Green", "Brown", "Beige", "Gold",
+        "Orange", "Yellow", "Purple", "Pink", "Charcoal", "Pearl White", "Midnight Black", "Silver Metallic",
+        "Deep Blue", "Forest Green", "Fire Engine Red", "Sunset Orange", "Champagne", "Platinum"
+      ]
+    },
+    {
+      "name": "transmission",
+      "type": "Custom List",
+      "options": ["Automatic", "Manual", "CVT", "Dual-Clutch", "Semi-Automatic", "Electric"]
+    },
+    {
+      "name": "driveType",
+      "type": "Custom List",
+      "options": ["FWD", "RWD", "AWD", "4WD"]
+    },
+    {
+      "name": "fuelType",
+      "type": "Custom List",
+      "options": ["Gasoline", "Diesel", "Hybrid", "Plug-in Hybrid", "Electric", "Flex Fuel"]
+    },
+    {
+      "name": "engine",
+      "type": "Custom List",
+      "options": [
+        "2.0L I4", "2.5L I4", "3.5L V6", "5.0L V8", "6.2L V8", "6.7L V8", "Electric Motor", "Hybrid System",
+        "1.5L Turbo I3", "2.0L Turbo I4", "2.7L Turbo V6", "3.0L Twin-Turbo I6", "4.0L Twin-Turbo V8", "6.6L V8 Diesel"
+      ]
+    },
+    {
+      "name": "horsepower",
+      "type": "Number",
+      "min": 100,
+      "max": 1000
+    },
+    {
+      "name": "torque",
+      "type": "Number",
+      "min": 100,
+      "max": 1000
+    },
+    {
+      "name": "mpgCity",
+      "type": "Number",
+      "min": 10,
+      "max": 150
+    },
+    {
+      "name": "mpgHighway",
+      "type": "Number",
+      "min": 15,
+      "max": 150
+    },
+    {
+      "name": "fuelTank",
+      "type": "Number",
+      "min": 10,
+      "max": 40
+    },
+    {
+      "name": "length",
+      "type": "Number",
+      "min": 150,
+      "max": 250
+    },
+    {
+      "name": "width",
+      "type": "Number",
+      "min": 60,
+      "max": 100
+    },
+    {
+      "name": "height",
+      "type": "Number",
+      "min": 50,
+      "max": 80
+    },
+    {
+      "name": "weight",
+      "type": "Number",
+      "min": 2000,
+      "max": 7000
+    },
+    {
+      "name": "cargoSpace",
+      "type": "Number",
+      "min": 10,
+      "max": 150
+    },
+    {
+      "name": "airbags",
+      "type": "Number",
+      "min": 4,
+      "max": 12
+    },
+    {
+      "name": "ratingNHTSA",
+      "type": "Custom List",
+      "options": ["1", "2", "3", "4", "5"]
+    },
+    {
+      "name": "ratingIIHS",
+      "type": "Custom List",
+      "options": ["Poor", "Marginal", "Acceptable", "Good", "Good+"]
+    },
+    {
+      "name": "vin",
+      "type": "Custom Formula",
+      "formula": "random.choice(['1','2','3','4','5']) + random.choice(['A','B','C','D','E','F','G','H','J','K','L','M','N','P','R','S','T','U','V','W','X','Y','Z']) + random.choice(['A','B','C','D','E','F','G','H','J','K','L','M','N','P','R','S','T','U','V','W','X','Y','Z']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['A','B','C','D','E','F','G','H','J','K','L','M','N','P','R','S','T','U','V','W','X','Y','Z']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['A','B','C','D','E','F','G','H','J','K','L','M','N','P','R','S','T','U','V','W','X','Y','Z']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['A','B','C','D','E','F','G','H','J','K','L','M','N','P','R','S','T','U','V','W','X','Y','Z']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['A','B','C','D','E','F','G','H','J','K','L','M','N','P','R','S','T','U','V','W','X','Y','Z']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['A','B','C','D','E','F','G','H','J','K','L','M','N','P','R','S','T','U','V','W','X','Y','Z']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['A','B','C','D','E','F','G','H','J','K','L','M','N','P','R','S','T','U','V','W','X','Y','Z']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['A','B','C','D','E','F','G','H','J','K','L','M','N','P','R','S','T','U','V','W','X','Y','Z']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['A','B','C','D','E','F','G','H','J','K','L','M','N','P','R','S','T','U','V','W','X','Y','Z']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['A','B','C','D','E','F','G','H','J','K','L','M','N','P','R','S','T','U','V','W','X','Y','Z']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['A','B','C','D','E','F','G','H','J','K','L','M','N','P','R','S','T','U','V','W','X','Y','Z']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['0','1','2','3','4','5','6','7','8','9'])"
+    },
+    {
+      "name": "stockNumber",
+      "type": "Custom Formula",
+      "formula": "random.choice(['A','B','C','D','E','F','G','H','J','K','L','M','N','P','R','S','T','U','V','W','X','Y','Z']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['0','1','2','3','4','5','6','7','8','9']) + random.choice(['A','B','C','D','E','F','G','H','J','K','L','M','N','P','R','S','T','U','V','W','X','Y','Z'])"
+    },
+    {
+      "name": "condition",
+      "type": "Custom List",
+      "options": ["New", "Like New", "Excellent", "Very Good", "Good", "Fair", "Poor"]
+    },
+    {
+      "name": "mileage",
+      "type": "Number",
+      "min": 0,
+      "max": 200000
+    },
+    {
+      "name": "msrp",
+      "type": "Number",
+      "min": 5000,
+      "max": 500000
+    },
+    {
+      "name": "invoicePrice",
+      "type": "Custom Formula",
+      "formula": "msrp * random.uniform(0.85, 0.95)"
+    },
+    {
+      "name": "marketValue",
+      "type": "Custom Formula",
+      "formula": "msrp * random.uniform(0.70, 0.95)"
+    },
+    {
+      "name": "dealerPrice",
+      "type": "Custom Formula",
+      "formula": "marketValue * random.uniform(0.95, 1.10)"
+    },
+    {
+      "name": "imageUrl",
+      "type": "Custom Formula",
+      "formula": "'https://images.unsplash.com/photo-' + str(random.randint(1, 1000)) + '?w=800&h=600&fit=crop&auto=format'"
+    },
+    {
+      "name": "interiorFeatures",
+      "type": "Custom List",
+      "options": [
+        "Leather Seats, Heated Seats, Navigation, Premium Audio",
+        "Cloth Seats, Bluetooth, Backup Camera, Cruise Control",
+        "Premium Leather, Panoramic Sunroof, Advanced Safety Suite",
+        "Sport Seats, Performance Steering Wheel, Track Mode",
+        "Luxury Interior, Massaging Seats, Ambient Lighting"
+      ]
+    },
+    {
+      "name": "exteriorFeatures",
+      "type": "Custom List",
+      "options": [
+        "Alloy Wheels, LED Headlights, Fog Lights, Roof Rails",
+        "Chrome Grille, Power Liftgate, Running Boards, Tow Package",
+        "Performance Wheels, Sport Exhaust, Carbon Fiber Accents",
+        "Luxury Package, Adaptive Cruise, 360 Camera",
+        "Off-Road Package, All-Terrain Tires, Skid Plates"
+      ]
+    },
+    {
+      "name": "technologyFeatures",
+      "type": "Custom List",
+      "options": [
+        "Apple CarPlay, Android Auto, Wireless Charging",
+        "Large Touchscreen, Voice Commands, Over-the-Air Updates",
+        "Advanced Infotainment, Premium Sound System, WiFi Hotspot",
+        "Performance Telemetry, Track Apps, Driving Modes",
+        "Autonomous Driving Suite, Advanced Safety, Connected Services"
+      ]
+    },
+    {
+      "name": "safetyFeatures",
+      "type": "Custom List",
+      "options": [
+        "ABS, Traction Control, Stability Control, Airbags",
+        "Blind Spot Monitoring, Lane Departure Warning, Adaptive Cruise",
+        "Forward Collision Warning, Automatic Emergency Braking, Pedestrian Detection",
+        "360 Camera, Parking Assist, Rear Cross Traffic Alert",
+        "Advanced Safety Suite, Night Vision, Driver Monitoring"
+      ]
+    }
+  ],
+  "num_rows": 10000
+}

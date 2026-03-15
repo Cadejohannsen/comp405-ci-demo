@@ -9,7 +9,11 @@
     "lint": "next lint",
     "test": "jest --verbose",
     "test:ci": "jest --verbose --ci",
-    "seed": "tsx prisma/seed.ts"
+    "seed": "tsx prisma/seed.ts",
+    "seed:massive": "tsx prisma/seed-massive.ts",
+    "seed:test": "tsx prisma/seed-test.ts",
+    "seed:original": "tsx prisma/seed-original.ts",
+    "download:data": "node scripts/download-mockaroo-data.js"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
