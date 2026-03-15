@@ -92,7 +92,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
 
   // Process cars with enhanced market data and deal scoring (optimized for development)
   // TODO: Implement caching for production
-  const carsWithMarketData = processCarsWithEnhancedMarketData(cars.slice(0, 20)); // Limit to 20 cars for faster loading
+  const carsWithMarketData = processCarsWithEnhancedMarketData(cars); // Show all available cars
 
   // Apply deal score sorting if requested
   if (searchParams.sort === "price_asc") {

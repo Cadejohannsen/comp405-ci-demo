@@ -201,7 +201,7 @@ export function calculateMileageScore(actualMileage: number, expectedMileage: nu
 export function findSimilarVehicles(
   targetCar: CarData,
   allCars: CarData[],
-  maxResults: number = 50
+  maxResults: number = 1000
 ): CarData[] {
   const currentYear = new Date().getFullYear();
   const targetAge = currentYear - targetCar.year;
